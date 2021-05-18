@@ -1,0 +1,4 @@
+import json
+file=open("infinity_stones
+json_data=json.load(file)
+print(jason_data)

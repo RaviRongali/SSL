@@ -1,0 +1,14 @@
+#! /usr/bin/awk -f
+
+#this is executable awk program... make this file executable with
+#perms, and run it like a shell script. the user won't have to know
+#that awk is being used
+
+BEGIN 	{sum=0}
+	# init
+
+{sum=sum+$3; print $0 "\t" $1 "\t" $3}  
+	# $0 gives you the line, and $1 etc the words in that line
+
+END 	{print "sum=" sum}
+	# finally

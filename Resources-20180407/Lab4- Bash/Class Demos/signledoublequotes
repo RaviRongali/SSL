@@ -1,0 +1,4 @@
+echo $USER
+echo 'hallo $USER'
+echo "hallo $USER"
+echo hallo $USER

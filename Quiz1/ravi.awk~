@@ -1,0 +1,10 @@
+BEGIN{
+    FS=":"
+	}
+{
+a[$1]=" "
+}
+END{
+for (i in a)
+print a[i]
+}

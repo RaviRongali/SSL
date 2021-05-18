@@ -1,0 +1,23 @@
+$ ./courseExtractor.sh https://www.cse.iitb.ac.in/~lucifer/problem1.pdf
+--2018-07-27 10:28:27--  http://wget/
+Resolving wget (wget)... failed: Name or service not known.
+wget: unable to resolve host address ‘wget’
+--2018-07-27 10:28:27--  https://www.cse.iitb.ac.in/~lucifer/problem1.pdf
+Resolving www.cse.iitb.ac.in (www.cse.iitb.ac.in)... 10.129.3.3
+Connecting to www.cse.iitb.ac.in (www.cse.iitb.ac.in)|10.129.3.3|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 54725 (53K) [application/pdf]
+Saving to: ‘tmp.pdf’
+
+tmp.pdf             100%[===================>]  53.44K  --.-KB/s    in 0.007s  
+
+2018-07-27 10:28:30 (7.11 MB/s) - ‘tmp.pdf’ saved [54725/54725]
+
+FINISHED --2018-07-27 10:28:30--
+Total wall clock time: 2.5s
+Downloaded: 1 files, 53K in 0.007s (7.11 MB/s)
+Course Code | Course Name | Total Credits | Instructor
+CS 217 | Discrete Structures | 4 | Prof. Rajarshi Murarka
+CS 219 | Data Structures and Algorithms | 6 | Prof. Shyam Rai
+CS 223 | Data Interpretation and Analysis | 4 | Prof. Rama Krishnan Reddy
+CS 259 | Software Systems Lab | 8 | Prof. Harmanpreet Gogolia

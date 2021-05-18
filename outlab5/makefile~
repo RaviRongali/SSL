@@ -1,0 +1,7 @@
+all: first adde
+first: add.cpp
+	bash skiprebuild.h
+adde: add.cpp
+	add.o
+add.o: add.cpp
+	g++ -c -Wall add.cpp

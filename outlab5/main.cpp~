@@ -1,0 +1,6 @@
+#include"depend.h"
+using namespace std;
+int main(){
+cout<<add(1,1);
+return 0;
+}

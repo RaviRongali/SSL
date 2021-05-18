@@ -1,0 +1,27 @@
+
+
+Latex Basics
+
+In this lab you will learn to use LateX to create
+beautiful PDF documents. You have been given one pdf file as a task.
+It includes several features of Latex. You have to produce all of them.
+You are free to use your own text, but all the feature demonstrated
+in the PDF task file must be put on display in your PDF output. You may
+make your own figure using any of the profiles in Dia. However you should use
+features such as connections, different shapes, connectors with 
+arrow heads, etc.
+
+What to submit:
+
+ one tarball (use the method described in the previous lab) with
+ name as <rollno>-lab2.tar.gz
+ including the following files:
+ 
+   .tex    source
+   .pdf    the output that you got
+   .dia    the figure that you made
+   .eps/.png/.jpg  the figure that you exported and used in .tex file
+   
+    
+    Good luck!!
+    

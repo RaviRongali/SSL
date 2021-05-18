@@ -1,0 +1,502 @@
+[
+    {
+        "team": "A",
+        "loyality": "3",
+        "number": "2"
+    },
+    {
+        "team": "A",
+        "loyality": "2",
+        "number": "351"
+    },
+    {
+        "team": "A",
+        "loyality": "9",
+        "number": "581"
+    },
+    {
+        "team": "A",
+        "loyality": "5",
+        "number": "527"
+    },
+    {
+        "team": "A",
+        "loyality": "6",
+        "number": "824"
+    },
+    {
+        "team": "A",
+        "loyality": "5",
+        "number": "777"
+    },
+    {
+        "team": "A",
+        "loyality": "8",
+        "number": "440"
+    },
+    {
+        "team": "A",
+        "loyality": "2",
+        "number": "562"
+    },
+    {
+        "team": "A",
+        "loyality": "9",
+        "number": "721"
+    },
+    {
+        "team": "A",
+        "loyality": "4",
+        "number": "98"
+    },
+    {
+        "team": "B",
+        "loyality": "10",
+        "number": "408"
+    },
+    {
+        "team": "B",
+        "loyality": "7",
+        "number": "252"
+    },
+    {
+        "team": "B",
+        "loyality": "10",
+        "number": "272"
+    },
+    {
+        "team": "B",
+        "loyality": "5",
+        "number": "367"
+    },
+    {
+        "team": "B",
+        "loyality": "10",
+        "number": "301"
+    },
+    {
+        "team": "B",
+        "loyality": "8",
+        "number": "896"
+    },
+    {
+        "team": "B",
+        "loyality": "2",
+        "number": "641"
+    },
+    {
+        "team": "B",
+        "loyality": "2",
+        "number": "634"
+    },
+    {
+        "team": "B",
+        "loyality": "2",
+        "number": "781"
+    },
+    {
+        "team": "B",
+        "loyality": "8",
+        "number": "263"
+    },
+    {
+        "team": "C",
+        "loyality": "4",
+        "number": "741"
+    },
+    {
+        "team": "C",
+        "loyality": "9",
+        "number": "340"
+    },
+    {
+        "team": "C",
+        "loyality": "9",
+        "number": "356"
+    },
+    {
+        "team": "C",
+        "loyality": "6",
+        "number": "959"
+    },
+    {
+        "team": "C",
+        "loyality": "6",
+        "number": "612"
+    },
+    {
+        "team": "C",
+        "loyality": "2",
+        "number": "328"
+    },
+    {
+        "team": "C",
+        "loyality": "5",
+        "number": "247"
+    },
+    {
+        "team": "C",
+        "loyality": "6",
+        "number": "841"
+    },
+    {
+        "team": "C",
+        "loyality": "3",
+        "number": "360"
+    },
+    {
+        "team": "C",
+        "loyality": "6",
+        "number": "111"
+    },
+    {
+        "team": "D",
+        "loyality": "2",
+        "number": "109"
+    },
+    {
+        "team": "D",
+        "loyality": "1",
+        "number": "551"
+    },
+    {
+        "team": "D",
+        "loyality": "8",
+        "number": "507"
+    },
+    {
+        "team": "D",
+        "loyality": "3",
+        "number": "194"
+    },
+    {
+        "team": "D",
+        "loyality": "8",
+        "number": "470"
+    },
+    {
+        "team": "D",
+        "loyality": "9",
+        "number": "136"
+    },
+    {
+        "team": "D",
+        "loyality": "1",
+        "number": "579"
+    },
+    {
+        "team": "D",
+        "loyality": "7",
+        "number": "266"
+    },
+    {
+        "team": "D",
+        "loyality": "9",
+        "number": "880"
+    },
+    {
+        "team": "D",
+        "loyality": "2",
+        "number": "639"
+    },
+    {
+        "team": "E",
+        "loyality": "3",
+        "number": "107"
+    },
+    {
+        "team": "E",
+        "loyality": "4",
+        "number": "152"
+    },
+    {
+        "team": "E",
+        "loyality": "8",
+        "number": "97"
+    },
+    {
+        "team": "E",
+        "loyality": "3",
+        "number": "67"
+    },
+    {
+        "team": "E",
+        "loyality": "10",
+        "number": "248"
+    },
+    {
+        "team": "E",
+        "loyality": "1",
+        "number": "274"
+    },
+    {
+        "team": "E",
+        "loyality": "6",
+        "number": "173"
+    },
+    {
+        "team": "E",
+        "loyality": "2",
+        "number": "370"
+    },
+    {
+        "team": "E",
+        "loyality": "10",
+        "number": "404"
+    },
+    {
+        "team": "E",
+        "loyality": "3",
+        "number": "847"
+    },
+    {
+        "team": "F",
+        "loyality": "10",
+        "number": "290"
+    },
+    {
+        "team": "F",
+        "loyality": "1",
+        "number": "561"
+    },
+    {
+        "team": "F",
+        "loyality": "5",
+        "number": "253"
+    },
+    {
+        "team": "F",
+        "loyality": "1",
+        "number": "5"
+    },
+    {
+        "team": "F",
+        "loyality": "7",
+        "number": "216"
+    },
+    {
+        "team": "F",
+        "loyality": "1",
+        "number": "712"
+    },
+    {
+        "team": "F",
+        "loyality": "10",
+        "number": "900"
+    },
+    {
+        "team": "F",
+        "loyality": "4",
+        "number": "89"
+    },
+    {
+        "team": "F",
+        "loyality": "10",
+        "number": "563"
+    },
+    {
+        "team": "F",
+        "loyality": "3",
+        "number": "185"
+    },
+    {
+        "team": "G",
+        "loyality": "6",
+        "number": "383"
+    },
+    {
+        "team": "G",
+        "loyality": "10",
+        "number": "650"
+    },
+    {
+        "team": "G",
+        "loyality": "10",
+        "number": "970"
+    },
+    {
+        "team": "G",
+        "loyality": "3",
+        "number": "819"
+    },
+    {
+        "team": "G",
+        "loyality": "10",
+        "number": "723"
+    },
+    {
+        "team": "G",
+        "loyality": "8",
+        "number": "670"
+    },
+    {
+        "team": "G",
+        "loyality": "8",
+        "number": "218"
+    },
+    {
+        "team": "G",
+        "loyality": "10",
+        "number": "854"
+    },
+    {
+        "team": "G",
+        "loyality": "7",
+        "number": "116"
+    },
+    {
+        "team": "G",
+        "loyality": "1",
+        "number": "994"
+    },
+    {
+        "team": "H",
+        "loyality": "4",
+        "number": "143"
+    },
+    {
+        "team": "H",
+        "loyality": "9",
+        "number": "123"
+    },
+    {
+        "team": "H",
+        "loyality": "10",
+        "number": "580"
+    },
+    {
+        "team": "H",
+        "loyality": "7",
+        "number": "133"
+    },
+    {
+        "team": "H",
+        "loyality": "5",
+        "number": "149"
+    },
+    {
+        "team": "H",
+        "loyality": "2",
+        "number": "708"
+    },
+    {
+        "team": "H",
+        "loyality": "10",
+        "number": "171"
+    },
+    {
+        "team": "H",
+        "loyality": "8",
+        "number": "451"
+    },
+    {
+        "team": "H",
+        "loyality": "10",
+        "number": "460"
+    },
+    {
+        "team": "H",
+        "loyality": "6",
+        "number": "910"
+    },
+    {
+        "team": "I",
+        "loyality": "2",
+        "number": "144"
+    },
+    {
+        "team": "I",
+        "loyality": "10",
+        "number": "342"
+    },
+    {
+        "team": "I",
+        "loyality": "2",
+        "number": "866"
+    },
+    {
+        "team": "I",
+        "loyality": "3",
+        "number": "249"
+    },
+    {
+        "team": "I",
+        "loyality": "6",
+        "number": "454"
+    },
+    {
+        "team": "I",
+        "loyality": "9",
+        "number": "575"
+    },
+    {
+        "team": "I",
+        "loyality": "6",
+        "number": "942"
+    },
+    {
+        "team": "I",
+        "loyality": "3",
+        "number": "918"
+    },
+    {
+        "team": "I",
+        "loyality": "10",
+        "number": "38"
+    },
+    {
+        "team": "I",
+        "loyality": "5",
+        "number": "380"
+    },
+    {
+        "team": "J",
+        "loyality": "2",
+        "number": "816"
+    },
+    {
+        "team": "J",
+        "loyality": "4",
+        "number": "196"
+    },
+    {
+        "team": "J",
+        "loyality": "2",
+        "number": "411"
+    },
+    {
+        "team": "J",
+        "loyality": "4",
+        "number": "337"
+    },
+    {
+        "team": "J",
+        "loyality": "4",
+        "number": "991"
+    },
+    {
+        "team": "J",
+        "loyality": "8",
+        "number": "327"
+    },
+    {
+        "team": "J",
+        "loyality": "2",
+        "number": "928"
+    },
+    {
+        "team": "J",
+        "loyality": "1",
+        "number": "848"
+    },
+    {
+        "team": "J",
+        "loyality": "4",
+        "number": "614"
+    },
+    {
+        "team": "J",
+        "loyality": "1",
+        "number": "441"
+    }
+]

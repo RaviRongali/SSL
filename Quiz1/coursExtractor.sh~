@@ -1,0 +1,20 @@
+#! /bin/bash
+grep 'CS [0-9][0-9][0-9]*' $1 > course.txt
+grep 'redits :' $1 | sed 's/^.*: //' > credits.txt
+grep 'Instructor :' $1 | sed 's/^.*: //' > instructor.txt
+b=$(< "credits.txt" wc -l)
+printf "Course Code | Course Name | Total Credits | Instructor \n"> ravi.txt
+for(( i=1;i<=$b;i++ ))
+do
+   # c1=$(sed -n "${i}p" coursenumber.txt)
+    c2=$(sed -n "${i}p" course.txt)
+    c3=$(sed -n "${i}p" credits.txt)
+    c4=$(sed -n "${i}p" instructor.txt)
+    printf "  $c2 |  $c3 |  $c4 \n" >>ravi.txt 
+done
+sed -e 's/:/|/g' ravi.txt
+rm ravi.txt
+rm credits.txt
+rm instructor.txt
+rm course.txt
+

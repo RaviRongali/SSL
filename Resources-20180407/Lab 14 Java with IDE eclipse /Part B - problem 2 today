@@ -1,0 +1,91 @@
+Part A
+  submission not required
+  
+Part B
+
+
+How to submit:
+	use export from eclipse to create one single archive file of your entire project.
+	in Eclipse, start a new project called rollno_lab10
+	keep adding your java file  of all questions into this.
+	The archive zip file will include all of this.
+	upload this zip file.
+	file->export->general->archive file --> give name as rollno_lab14.zip
+
+----------------------------------
+
+Submit any 3 out of following 4
+
+Q1) CountPrimes.java:
+
+Build a java program which will compute total number of prime numbers within the 
+range 1 to x where x is an upper bound. e.g. 100,
+1000, 10000, 100000, 1000000. The aim is to print the CPU time in ns. 
+
+output format:
+	X	no. of prime numbers	Time taken in ns
+
+
+Q2) ClickTriangle.java
+
+Make an applet which will show the position of the mouse pointer when the 
+mouse is over it and capture the first 3 clicks to
+draw a triangle with labels (A, B, C) according to the respective 
+order of the clicks.
+
+Q 3) ClickPolygon.java
+
+Modify the above program to draw a polygone. When the user finishes
+clicking, she simply moves out of the window. At that point, the polygon
+should be closed.
+
+
+Q 4) Evaluator.java: 
+Develop an expression evaluator which accepts 4 arguments
+ a string expression,      left_x_val,  right_x_val,    step
+
+and which dumps the list of result values against x values
+ after the substitution
+
+ 
+ e.g 
+
+java Evaluator "x^2+3*x+2" -2 3 1 
+
+would dump:
+
+-2.00 0.00
+-1.00 0.00
+0.00 2.00
+1.00 6.00
+2.00 12.00
+3.00 20.00 
+
+        
+the numbers are of type Double, and while printing, use 2 decimals.     
+
+Grammar for the expression:
+
+allowed operators and priorities: ^ / * + -
+no brackets
+unknown variable: only x                
+numbers are positive
+integers or double in format 1,2,.. 1.3, 2.22, etc
+no spaces in expression
+
+
+use any algorithm of your choice.
+Feel free to use collection data structures
+such as ArrayList, Stack, and tokenizers like StringTokenizer.
+and System.out.format for formatted output.
+
+
+There can be many classes inside your solution:
+ but,
+        class Evaluator  carries main
+                we will use this.
+                
+you may use other internal classes as your helper classes.
+
+ 
+

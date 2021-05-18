@@ -1,0 +1,6 @@
+def makeTeams(total,each):
+    if((total%each)!=0):
+        print "ValueError =" (each-(total%each))
+
+
+transfer=open('students.txt','r')

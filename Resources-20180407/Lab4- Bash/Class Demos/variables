@@ -1,0 +1,6 @@
+x="hallo how are you"
+y=$x #this is a comment, $ sign is used to get value of variable
+#no space before or after = sign
+echo ya aa
+echo x
+echo $y

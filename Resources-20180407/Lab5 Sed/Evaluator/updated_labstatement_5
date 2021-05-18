@@ -1,0 +1,176 @@
+Lab 5: Sed Programming
+
+
+What we did in class today:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Sed is a Stream Editor
+
+a sed script contains set of rules with which we manipulate a text file
+
+the rules use regular expression power
+
+sed goes line by line
+
+we can call sed in bashscript, or we can execute it directly on command prompt, or we can
+invoke the sed command and pass to it a sed script as parameter.
+
+The sed scripts, command etc. operate on an inputfile which is called the input stream of lines.
+
+Output is dumped on screen.
+
+You can use redirect to create a new output file
+
+But there are options to modify the input file, as given in one of the demos.
+
+Go through the demos and then attempt these problems as you start understanding sed rule specification.
+===================================================================================================
+
+How will your submission be evaluated?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We will use automatic checkers to check your programs. 
+So it is important to follow the specifications very strictly. A small deviation will cause your
+program to fail. We use diff to compare your output with our.
+
+We are giving you sample test cases with expected outputs. 
+Use diff program to compare your output with the expected output on sample cases 
+before submitting.
+
+We will also use our own hidden test cases during evaluation to test the completeness
+and correctness of your solutions.
+
+Structure of Folders
+~~~~~~~~~~~~~~~~~~~~
+
+Folder to do the assignments:  <rollno>_lab5  
+Inside the folder the directory names are integers corresponding to the question nos.
+
+Submission Tar file created from this folder:   <rollno>_lab5.tar.gz 
+
+To create tar.gz, go out of that folder and execute:
+tar cvzf <rollno>_lab5.tar.gz <rollno>_lab5
+ 
+============================================
+
+The Problems:
+
+when we mean shell script, we mean using only sed in it to do the following tasks. No other
+shell script commands are to be used.
+
+1. Write a letter generator shell script named "script1.sh" which takes in a letter template and produces a letter by
+inserting given set of values in token holders. The standard template is in a file called "LetterTemplate".
+
+Your program should accept the values for token holders X, Y, P, Q, R, A, B, D and output file name.
+The order of parameters is  exactly as above. 
+The output file is produced by replacing these token holders by the incoming values.
+
+sample execution:
+
+bash script1 "Professor" "IIT Bombay" "Perl" "C" "Java" "long experience" "knowledge" "Raj" output1
+ 
+   or without the quotes:
+
+bash script1 Professor IIT\ Bombay Perl  C Java long\ experience  knowledge Raj output1
+
+This should generate the sample output as output1 file given to you for the above set of arguments.
+____________________________________________________________________________________________________________
+
+2. Write a shell script named "script2.sh" to remove the first number occuring inside line-3 of input file. 
+The input file is to be taken as a parameter and replacement is to be done in-place and taking an automatic backup 
+of the input file.
+
+bash script2.sh input
+____________________________________________________________________________________________________________
+
+3.  Write a shell script "script3.sh" to replace the 3rd occurence of "you" to "we" in each line (newline), and 
+output the lines into a file called output3. Take input as command line argument.
+
+bash script3.sh sample_input1 
+____________________________________________________________________________________________________________
+
+4. Write a shell script called "script4.sh" which adds a white space after every occurance of, . ? ; : ! 
+(punctuation marks). 
+The script takes one input file as its first argument and outputs changes into a new file mentioned as second
+argument.
+
+bash script4.sh sample_input1 output1
+____________________________________________________________________________________________________________
+
+5. Write a sed script called "script5.sed" which removes white spaces before and insert one space after
+each of the above punctuation marks. 
+
+Directly run on the command prompt. We will test it similarly.
+
+sed -f script5.sed input1 
+___________________________________________________________________________________________________________
+
+6. Write a  sed script called "script6.sed" which replaces multiple white spaces in sequence
+(tabs and spaces) into single white spaces, and multiple newline characters into single newline characters.
+This is to be done everywhere in the file.
+
+sed -f script6.sed input1
+____________________________________________________________________________________________________________
+
+7.  You are a network administrator who has to shift all the systems from one network to another.  
+You are required to replace all (and only the) IP addresses of the format 192.X.Y.Z to 10.X.Y.Z
+where X,Y,Z are valid IP address octates (consider as decimal numbers of 1 to 3 digits).
+Write a sed script called "script7.sed" which does the above task.
+
+sed -f script7.sed input1
+___________________________________________________________________________________________________________
+
+8. Write a sed script namely "script8.sed" to replace the word "you" with "we" in the first 10 lines of a file. 
+The replacements have to be CASE-INSENSITIVE.
+
+sed -f script8.sed input1
+___________________________________________________________________________________________________________
+
+9. Write a sed script called "script9.sed" which takes in a C file name as its input argument and removes all 
+single line comments (\\ types and \* *\ types) in it.
+
+sed -f script9.sed input1
+__________________________________________________________________________________________________________
+   
+10. File dictionary contains a list of pairs of commonly misspelt words and their correct forms. 
+Write a shell script named "script10.sh"  accepting input text filename argument and name of   
+the dictionary file, and to apply all the suggested spelling changes in dictionary to the input file. 
+will correct spellings in myfile.txt as instructed in file "commonmistakes"
+
+bash script10.sh sample_input1 commonmistakes output1
+
+sample content of file dict is given below. 
+recieve receive
+grammer grammar 
+
+Important: Your script should not depend on the no. of entries in the file. 
+Test this out. The TAs will use  their own dictionary and their own input file to test your program.
+
+You are allowed to use little bit of bash variables and commands to 
+achieve this task in this particular problem.
+But the replacement will have to be done using sed only.
+_________________________________________________________________________________________________________
+
+11. Write a shell script "script11.sh" to convert a comma and semicolon separated csv file into a 
+tab seperated csv file.
+
+bash script11.sh sample_input1 output1
+_________________________________________________________________________________________________________
+
+12. Write a shell script "script12.sh" to extract all the email-ids from a given input file mentioned as the
+first  argument generating an output file mentioned as the second argument.
+
+bash script12.sh sample_input1 output1
+
+________________________________________________________________________________________________________
+
+13. Write a shell script "script13.sh" to extract all the words starting with capital letters, such that the
+ words are not present in a list of stop words. The list of stop words is supplied as a seperate in the 
+ second argument. 
+
+bash script13.sh <inputfile> <stopwords> <outputfile>
+
+If needed, you may use little bit of bash variables and commands to 
+achieve this task in this particular problem.
+But the replacement will have to be done using sed only.
+

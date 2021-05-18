@@ -1,0 +1,13 @@
+Example 1
+key :Y
+code : HELLO WORLD 
+
+
+Example 2
+key : F
+code : HELLO FRANDZ CHAI PI LO
+
+
+Example 3
+key : J
+code : SOFTWARE SYSTEMS LAB

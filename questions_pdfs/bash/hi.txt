@@ -1,0 +1,156 @@
+CS699 Lab 1 Exercises - Unix CLI
+Things to try in the lab:
+1. Use ​script ​command to save the work in a file named
+<yourrollnumber>-lab1-inlab.script​. Do a man script first before you do this to check
+how it works. You will eventually submit the script output, so you MUST do this task first.
+This command will start a session in which everything you type on the terminal will be
+recorded. It will return with a command prompt. Continue with the next instruction below.
+Note that the script command will only record what you do in that terminal window (or
+shell session) only. So, ensure that you do all your work in that window alone. Else you
+will lose your work.
+Note​: All the data required for the in lab assignment and the take home assignment is
+given in Data.tar.gz
+2. Go to your home directory using ​cd or cd ~/​. Use ​mkdir ​command to make two
+directories ​lab1​ and ​assignment1​, l​ ab1​ should be ​in​ ​assignment1​ and do this with one
+command.
+3. Use ​cd ​command to navigate into the directories and use ​touch​ command to make 3
+files in the ​lab1​ directory named ​lab1_1.txt​, ​lab1_2.doc, lab1_3.odt ​and in the
+assignment1​ directory named ​assignment1_1.txt,​ ​assignment1_2.doc,
+assignment1_3.odt
+4. Use the ​cat​ command to copy the content of the given file​ iit.txt ​file into all the files of
+assignment1​ directory and ​lab1​ directory.
+5. In the ​lab1​ directory, use ​ls​ command to display only the .txt files, then only the .doc file
+and then only the .odt files.
+6. Use ​pwd ​command to print the full path of the ​lab1​ directory. Understand the concept of
+full vs relative paths.
+7. Make a file named commands.txt inside ​assignment1​ directory using ​cat ​command and
+write "ls" command in it. Do NOT use any editor to do this. Make it executable ​for user
+and group only​ using ​chmod ​and then execute it.
+8. Use ​cat ​command to create a file called ​names.txt​ in the ​assignment1​ directory and
+copy the contents of the given file ​find.txt​ in to it.
+
+9. use the​ head​ command to display the first 15 lines of the ​names.txt​ file
+10. use the ​tail​ command to display the last 15 lines of ​names.txt​ file
+11. use ​more​ and ​less​ command to display the contents of the ​names.txt​ file
+12. copy the file ​names.txt​ into the lab1 directory using the ​cp​ command
+13. make a new directory named ​moved_content​ inside ​assignment1​ directory using ​mkdir
+command and use ​mv​ command to move ​names.txt​ file into it
+14. Use ​grep ​command to search the word “the” in all the .txt files of the ​assignment1
+directory, also use the ​grep ​command to search the word “the” in all the files in the
+assignment1​ directory.
+15. Move the given file named ​info.txt​ to the ​lab1​ directory and then use the​ grep​ command
+to count the occurence of the number “5” in the file.
+16. Display only the “the” word in all the files in ​assignment1​ directory without displaying the
+entire line using ​grep ​command.
+17. Display all the “the” without considering the case sensitivity in all the files in the
+assignment1​ directory using ​grep ​command.
+18. Display the file name of all the files that contains the word “the” in all the files in
+assignment1​ directory using ​grep ​command.
+19. Be in the home directory and use ​find ​command to find the file ​lab1_1.txt​ in the
+assignment1​ directory
+20. Make an empty file named ​empty.txt​ inside the ​lab1​ directory using ​touch​ command,
+then return to home directory and use ​find ​command to search for a file having 0 bytes
+size
+21. Use ​find ​ command to display the files that were accessed 0.0002 days ago in the
+assignment1​ directory
+22. Display the space of the disks ​in GB​ using the ​df​ command
+23. Create a sleep job for 5 minutes as a background job using ​sleep​ command and list the
+jobs running in the background using ​jobs​ command
+
+24. Use ​fg​ command to bring the sleep job in the foreground and stop it using ^z. Display all
+the stopped jobs using the jobs command
+25. Use ​bg​ command to run the sleep job in the background and display all the running jobs
+using the jobs command
+26. Get the process ID of ​all​ the running processes on the machine using the ​ps ​command
+27. Write a command to display all the running processes using ​ps ​command, pipeline it
+with ​grep​ command to search for “bash” processes. Understand the concept of pipes in
+Unix. You will use this later.
+28. remove the file commands.txt from the ​assignment1​ directory using ​rm -i​.
+29. use ​rm​ command to first empty the ​lab1​ directory and then use ​rmdir​ command to
+remove the directory.
+30. Use ​rm ​ to delete ​assignment1​ directory(non empty)
+31. list the file operations using the ​ls -l ​command
+32. Use ​uptime, w , finger, uname​ command to see what the output it display.
+33. Using​ whereis​ command, find out ​the source, binary, and manuals sections for ​grep, ls,
+man​ command​.
+34. U
+​ sing ​which​ command, locate the full path of the executable associated with​ dpkg, ls,
+sudo ​command.
+35. Use ​man​ command to see the detail of function ​ping, fgrep, rpm, tee ​command. Use
+tee​ command to append the text “I love my India” into the blank file test.txt
+36. **skip*** Run ​rpm​ command to check whether ​MySQL​ has been installed in the system
+or not.
+37. Get your ip address of your neighbor’s system and then test its network connectivity
+using ​ping​ command. Use ​ifconfig​ to determine the IP address of your system.
+38. Using ​wget​ command down the pdf from ​http://linux-training.be/linuxfun.pdf
+39. Given the large text file ​sample.txt ​in Data folder, using emacs editor perform the
+following tasks:-
+
+a. Jump to the first line
+b. Delete 5th character from line 60.
+c. Add a new line after line 70 and input the text “line 60 was edited”
+d. Find the entry of word “imperdiet”
+e. Replace all the words “non” with “changed”
+f. Save the file as tmp-1
+40. Do all emacs exercises listed in slides 113/114 of the Unix CLI presentation. Become
+really familiar with Emacs since its much much more than a editor - its an environment
+where you can program, compile, check mail, browse the web and do anything you want
+to with a computer.
+41. As you know Vi (or Vim) is another popular editor on Linux/Unix. Do all the exercises
+listed on slides 101/102 for Vi. Vi is the default editor present on every variant of Linux or
+Unix. So, its useful to be familiar with all the shortcuts in Vi/Vim.
+Submission Instructions for the in-lab work.
+1. Exit the script session you started in the very first instruction of the in lab portion. Do this
+using ^D. This will save the entire session into a file whose filename you specified as an
+argument to the script command in the first instruction. and exit the script session.
+2. Compress the file using gzip. You will end up with the script file having the .gz extension.
+3. Upload this on Moodle.
+
+Take Home assignment (feel free to do as much as
+you can in the lab)
+1.
+
+​Unzip the file named ​Data.tar.gz ​from moodle, it contains the directory named ​students​ which
+
+contains as many files as there are students with the naming convention of the file as follows:a. roll number followed by character “_” followed by college id which is unique for each
+college followed by “_”,
+b. followed by month(2 digit) and year(4 digit) of college graduation.
+For example:- The file name ​17405_iitg_05_2013.txt​ denotes the record of student with roll
+number 17405, college id​ ​iitg & graduation date May 2013.
+
+Your task is to:a. extract out all the files of students corresponding to college code “iitb”
+b. store it in separate directory named iitb.
+c. Among these records, if student with graduation year is after 2015, then append the end
+of the file the following message, “please apply for phd before Jan 2019”
+d. followed by the calendar of Jan 2019.
+2. Make a directory named ​iit,​ make 3 files named ​iit1.txt, iit2.doc, iit3.odt​ and copy the contents of
+the given file ​info.txt​ into all the three files. Copy text from line number 2 to 6 from ​iit1.txt a
+​ nd
+paste it into a file named ​temp.txt​ in the ​iit​ directory
+3. Use ​touch ​command to make a file called ​names.txt​ in the ​iit​ directory, and use ​cat​ command to
+copy the contents of the (given) file ​find.txt​ in to it. Then display the names in sorted order. Also
+display the contents of all the files in the ​iit​ directory with a single command.
+4. Display the contents of the ​iit​ directory in a
+​ scending​ order of their names. Then display the same
+according to most recent modified first. Then display the same in ascending order of their size.
+Then do all of the above but in ​descending​ order.
+5. Count the total number of lines in all the files in the ​iit​ directory.
+6. Create a cron job to delete all the .txt files older than 30 minutes in the folder Data/students on
+every Wednesday after 17:00. Write the cron command as well as the shell command to delete
+the files older than 30 minutes. Register the crontab file and watch its effect. Then unregister the
+crontab file.
+Submission instructions for the take home part of Lab 1.
+1. For each of the 6 problems described above, your job is to create a sequence of unix cli
+commands that accomplish the task. Write down this sequence of commands in a file
+named <your roll number>-lab1-takehome-problem<problemnumber>.solution1
+2. Create a tar archive of all these *.solution files in <your roll
+number>-lab1-takehome-solutions.tar
+3. Gzip the tar file.
+4. Upload on Moodle.
+
+1
+
+BE VERY CAREFUL WITH THESE NAMES. We will grade using a script and if it does not find the
+specific file, you will not be awarded any points.
+
+

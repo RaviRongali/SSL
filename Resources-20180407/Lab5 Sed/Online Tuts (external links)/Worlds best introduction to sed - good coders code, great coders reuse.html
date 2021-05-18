@@ -1,0 +1,1495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>World's best introduction to sed - good coders code, great coders reuse</title>
+
+    <meta name="description" content="This is the world's best introduction to sed. It explains the four spaces of sed, various sed command line arguments, sed addresses, sed ranges, basic sed commands, and command grouping.">
+
+    <link rel="stylesheet" type="text/css" href="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/reset.css" media="screen, projection">
+    <link rel="stylesheet" type="text/css" href="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/catonmat.css" media="screen, projection">
+    <!--[if lte IE 7]>
+    <style type="text/css">
+      #wrapper { margin-top: -1px; }
+    </style>
+    <![endif]-->
+
+    <script async="" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/cbgapi.loaded_1"></script><script async="" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/cbgapi.loaded_0"></script><script gapi_processed="true" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/plusone.js" async="" type="text/javascript"></script><script src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/ga.js" async="" type="text/javascript"></script><script src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/ca-pub-0433925538517663.js" type="text/javascript" async=""></script><script src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/widgets.js" id="twitter-wjs"></script><script type="text/javascript" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/jquery-1.js"></script>
+    <script type="text/javascript" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/catonmat.js"></script>
+
+    
+
+
+    <link rel="alternate" type="application/atom+xml" title="catonmat feed" href="http://www.catonmat.net/feed/">
+    <link rel="shortcut icon" href="http://www.catonmat.net/favicon.ico" type="image/x-icon"> 
+    <link rel="icon" href="http://www.catonmat.net/favicon.ico" type="image/x-icon"> 
+
+    <meta name="google-site-verification" content="aXAUFOiWFF_OiqrmlUrhZN1sqJf5tnuYdMDpuXc1w8w">
+    <meta name="msvalidate.01" content="CD96F4810C690ED2612624D7D2A0C5E8">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        
+  <div id="tabs">
+  <ul>
+    <li><a href="http://www.catonmat.net/" title="Return to homepage/blog">Home</a></li>
+    <li><a href="http://www.catonmat.net/books/" title="Books that Peteris krumins has written">Books</a></li>
+    <li><a href="http://www.catonmat.net/projects/" title="Projects that Peteris Krumins has done">Projects</a></li>
+    <li><a href="http://www.catonmat.net/sitemap/" title="Catonmat sitemap">Sitemap</a></li>
+    <li><a href="http://www.catonmat.net/feedback/" title="Contact Peteris Krumins/Leave feedback">Feedback</a></li>
+    <li><a href="http://www.catonmat.net/about/" title="About Peteris Krumins">About Me</a></li>
+    <li><a class="advertise" href="http://www.catonmat.net/consulting/" title="Consulting">Consulting</a></li>
+    <li><a class="advertise" href="http://www.catonmat.net/advertise/" title="Advertise on catonmat.net">Advertising</a></li>
+  </ul>
+  <!--
+  <div id="tab-ad">
+  </div>
+  -->
+</div>
+<div class="clear"></div>
+<div id="hspace">
+  <div id="first">
+    <a href="http://www.catonmat.net/" class="wide" title="Return to good coders code, great reuse">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/good-coders-code-great-reuse.gif" alt="good coders code, great reuse">
+    </a>
+    <div id="first-real">
+      <table valign="middle" height="145" width="100%">
+        <tbody><tr>
+          <td>
+            <p class="quote">I really hate this damned machine. I wish that they would sell it. It never does quite what I want. But only what I tell it.</p>
+            <!-- <span class="quotes"><a href="/quotes/" title="more programming related quotes">more quotes</a></span>-->
+            <p class="author">A Programmer's Lament</p>
+          </td>
+        </tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div id="second">
+    <div id="second-real">
+      <div id="announcements">
+        <div id="browserling">
+          <p class="title"><a href="http://www.catonmat.net/blog/launching-browserling/" title="I am doing a startup!">I am doing a startup!</a></p>
+          <p class="browserling-logo"><a href="http://www.browserling.com/" title="Cross-browser testing"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/browserling-logo-180px.png" alt="Browserling"></a></p>
+          <p>Cross-browser testing from your browser!</p>
+        </div>
+        <div id="books">
+          <p class="title"><a href="http://www.catonmat.net/blog/perl-one-liners-no-starch-press/">I have written my fourth book!</a>
+          </p><p class="awk-logo"><a href="http://www.catonmat.net/blog/perl-one-liners-no-starch-press/" title="Perl One-Liners by No Starch Press"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/perl-book-no-starch-press-180x61.png" alt="Perl Book"></a></p>
+          <p>Be faster than Larry Wall at command line!</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+
+      </div>
+      <div id="wrapper">
+        <div id="content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="welcome">
+  <div class="twitter">
+    <p><a href="http://twitter.com/pkrumins" title="Peteris Krumins on Twitter"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/twitter-16x16.gif">Follow me on Twitter</a> for my latest adventures!</p>
+  </div>
+</div>
+
+
+
+<div class="page">
+  <div class="header">
+    <span class="category next"><a href="http://www.catonmat.net/category/unix-shell" title="See all posts in category &quot;Unix Shell&quot;">Unix Shell</a></span>
+
+    <span class="commentsc">
+        <a href="http://www.catonmat.net/blog/worlds-best-introduction-to-sed/#comments" title="15 people have commented on &quot;World's best introduction to sed&quot;"><strong>15</strong> Comments</a>
+    </span>
+
+    <span class="date right">October 07, 2011</span>
+
+    <div class="clear"></div>
+    <div class="hrb"></div>
+    <h1><a href="http://www.catonmat.net/blog/worlds-best-introduction-to-sed/" title="World's best introduction to sed">World's best introduction to sed</a></h1>
+    <!--
+    <div class="hr lighter"></div>
+    -->
+  </div>
+
+
+  <div class="content">
+    
+
+
+      <div class="c" style="float: right; margin-left: 5px; padding-bottom: 0"><p><a href="http://www.catonmat.net/blog/sed-book/" class="nohover" title="Sed One-Liners Explained"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/cover.png"></a><br>
+<small><a href="http://www.catonmat.net/blog/sed-book/">sed book</a></small></p>
+</div>
+<p>This is the <strong>world's best introduction to sed</strong> - the superman of UNIX stream editing. Originally I wrote this introduction for my <a href="http://www.catonmat.net/blog/sed-book/">second e-book</a>, however later I decided to make it a part of the <a href="http://www.catonmat.net/download/sedbook-preview.pdf">free e-book preview</a> and republish it here as this article.</p>
+<h2>Introduction to sed</h2>
+<p>Mastering sed can be reduced to understanding and manipulating <i>the four spaces</i> of sed. These four spaces are:</p>
+<ul><li>Input Stream</li>
+<li>Pattern Space</li>
+<li>Hold Buffer</li>
+<li>Output Stream</li>
+</ul>
+<p>Think about the spaces this way - sed reads the input stream and 
+produces the output stream. Internally it has the pattern space and the 
+hold buffer. Sed reads data from the input stream until it finds the 
+newline character <code>\n</code>. Then it places the data read so far, 
+without the newline, into the pattern space. Most of the sed commands 
+operate on the data in the pattern space. The hold buffer is there for 
+your convenience. Think about it as temporary buffer. You can copy or 
+exchange data between the pattern space and the hold buffer. Once sed 
+has executed all the commands, it outputs the pattern space and adds a <code>\n</code> at the end.</p>
+<p>It's possible to modify the behavior of sed with the <code>-n</code> command line switch. When <code>-n</code> is specified, sed doesn't output the pattern space and you have to explicitly print it with either <code>p</code> or <code>P</code> commands.</p>
+<p>Let's look at several examples to understand the four spaces and sed.
+ These are just examples to illustrate what sed looks like and what it's
+ all about.</p>
+<p>Here is the simplest possible sed program:</p>
+<pre>sed 's/foo/bar/'
+</pre>
+<p>This program replaces text "<code>foo</code>" with "<code>bar</code>" on every line. Here is how it works. Suppose you have a file with these lines:</p>
+<pre>abc
+foo
+123-foo-456
+</pre>
+<p>Sed opens the file as the input stream and starts reading the data. After reading "<code>abc</code>" it finds a newline <code>\n</code>. It places the text "<code>abc</code>" in the pattern space and now it applies the <code>s/foo/bar/</code> command. Since we have "<code>abc</code>" in the pattern space and there is no "<code>foo</code>"
+ anywhere, sed does nothing to the pattern space. At this moment sed has
+ executed all the commands (in this case just one). The default action 
+when all the commands have been executed is to print the pattern space, 
+followed by newline. So the output from the first line is "<code>abc\n</code>".</p>
+<p>Now sed reads in the second line "<code>foo</code>" and executes <code>s/foo/bar/</code>. This replaces "<code>foo</code>" with "<code>bar</code>". The pattern space now contains just "<code>bar</code>".
+ The end of the script has been reached and sed prints out the pattern 
+space, followed by newline. The output from the second line is "<code>bar\n</code>".</p>
+<p>Now the 3rd line is read in. The pattern space is now "<code>123-foo-456</code>". Since there is "<code>foo</code>" in the text, the <code>s/foo/bar/</code> is successful and the pattern space is now "<code>123-bar-456</code>". The end is reached and sed prints the pattern space. The output is "<code>123-bar-456\n</code>".</p>
+<p>All the lines of the input have been read at this moment and sed 
+exits. The output from running the script on our example file is:</p>
+<pre>abc
+bar
+123-bar-456
+</pre>
+<p>In this example we never used the hold buffer because there was no need for temporary storage.</p>
+<p>Before we look at an example with temporary storage, let's take a look at three command line switches: <code>-n</code>, <code>-e</code> and <code>-i</code>. First <code>-n</code>.</p>
+<p>If you specify <code>-n</code> to sed, like this:</p>
+<pre>sed -n 's/foo/bar/'
+</pre>
+<p>Then sed will no longer print the pattern space when it reaches the 
+end of the script. So if you run this program on our sample file above, 
+there will be no output. You must use sed's <code>p</code> command to force sed to print the line:</p>
+<pre>sed -n 's/foo/bar/; p'
+</pre>
+<p>As you can see, sed commands are separated by the <code>;</code> character. You can also use <code>-e</code> switch to separate the commands:</p>
+<pre>sed -n -e 's/foo/bar/' -e 'p'
+</pre>
+<p>It's the same as if you used <code>;</code>. Next, let's take a look at the <code>-i</code>
+ command line argument. This one forces sed to do in-place editing of 
+the file, meaning it reads the contents of the file, executes the 
+commands, and places the new contents back in the file.</p>
+<p>Here is an example. Suppose you have a file called "<code>users</code>", with the following content:</p>
+<pre>pkrumins:hacker
+esr:guru
+rms:geek
+</pre>
+<p>And you wish to replace the "<code>:</code>" symbol with "<code>;</code>" in the whole file. Then you can do it as easily as:</p>
+<pre>sed -i 's/:/;/' users
+</pre>
+<p>It will silently execute the <code>s/:/;/</code> command on all lines in the file and do all substitutions. <strong>Be very careful when using <code>-i</code> as it's destructive and it's not reversible!</strong> It's always safer to run sed without <code>-i</code>, and then replace the file yourself.</p>
+<p>Alternatively you can specify a file extension to the <code>-i</code> command. This way <code>sed</code> will make a backup copy of the file before it makes in-place modifications.</p>
+<p>For example, if you specify <code>-i.bak</code>, like this:</p>
+<pre>sed -i.bak 's/:/;/' users
+</pre>
+<p>Then <code>sed</code> will create <code>users.bak</code> before modifying the contents of <code>users</code> file.</p>
+<p>Actually, before we look at the hold buffer, let's take a look at 
+addresses and ranges. Addresses allow you to restrict sed commands to 
+certain lines, or ranges of lines.</p>
+<p>The simplest address is a single number that limits sed commands to the given line number:</p>
+<pre>sed '5s/foo/bar/'
+</pre>
+<p>This limits the <code>s/foo/bar/</code> only to the 5th line of file or input stream. So if there is a "<code>foo</code>" on the 5th line, it will be replaced with "<code>bar</code>". No other lines will be touched.</p>
+<p>The addresses can be also inverted with the <code>!</code> after the address. To match all lines that are not the 5th line (lines 1-4, plus lines 6-...), do this:</p>
+<pre>sed '5!s/foo/bar/'
+</pre>
+<p>The inversion can be applied to any address.</p>
+<p>Next, you can also limit sed commands to a range of lines by specifying two numbers, separated by a comma:</p>
+<pre>sed '5,10s/foo/bar/'
+</pre>
+<p>In this one-liner the <code>s/foo/bar/</code> is executed only on 
+lines 5 - 10, inclusive. Here is a quick, useful one-liner. Suppose you 
+want to print lines 5 - 10 in the file. You can first disable implicit 
+line printing with the <code>-n</code> command line switch, and then use the <code>p</code> command on lines 5 - 10:</p>
+<pre>sed -n '5,10p'
+</pre>
+<p>This will execute the <code>p</code> command only on lines 5 - 10. No other lines will be output. Pretty neat, isn't it?</p>
+<p>There is a special address <code>$</code> that matches the last line of the file. Here is an example that prints the last line of the file:</p>
+<pre>sed -n '$p'
+</pre>
+<p>As you can see, the <code>p</code> command has been limited to <code>$</code>, which is the last line of input.</p>
+<p>Next, there is also a single regular expression address match like this <code>/regex/</code>.
+ If you specify a regex before a command, then the command will only get
+ executed on lines that match the regex. Check this out:</p>
+<pre>sed -n '/a\+b\+/p'
+</pre>
+<p>Here the <code>p</code> command will get called only on lines that match <code>a\+b\+</code> regular expression, which means one or more letters "<code>a</code>" followed by one or more letters "<code>b</code>". For example, it prints lines like "<code>ab</code>", "<code>aab</code>", "<code>aaabbbbb</code>", "<code>foo-123-ab</code>", etc. Note how the <code>+</code>
+ has to be escaped. That's because sed uses basic regular expressions by
+ default. You can enable extended regular expressions by using the <code>-r</code> command line switch:</p>
+<pre>sed -rn '/a+b+/p'
+</pre>
+<p>This way you don't need to quote meta-characters like <code>+</code>, <code>(</code> and <code>)</code>.</p>
+<p>There is also an expression to match a range between two regexes. Here is an example,</p>
+<pre>sed '/foo/,/bar/d'
+</pre>
+<p>This one-liner matches all lines between the first line that matches "<code>/foo/</code>" regex and the first line that matches "<code>/bar/</code>" regex, inclusive. It applies the <code>d</code> command that stands for delete. In other words, it deletes a range of lines between the first line that matches "<code>/foo/</code>" and the first line after "<code>/foo/</code>" that matches "<code>/bar/</code>", inclusive.</p>
+<p>Now let's take a look at the hold buffer. Suppose you have a problem 
+where you want to print the line before the line that matches a regular 
+expression. How do you do this? If sed didn't have a hold buffer, things
+ would be tough, but with hold buffer we can always save the current 
+line to the hold buffer, and then let sed read in the next line. Now if 
+the next line matches the regex, we would just print the hold buffer, 
+which holds the previous line. Easy, right?</p>
+<p>The command for copying the current pattern space to the hold buffer is <code>h</code>. The command for copying the hold buffer back to the pattern space is <code>g</code>. The command for exchanging the hold buffer and the pattern space is <code>x</code>. We just have to choose the right commands to solve this problem. Here is the solution:</p>
+<pre>sed -n '/regex/{x;p;x}; h'
+</pre>
+<p>It works this way - every line gets copied to the hold buffer with the <code>h</code> command at the end of the script. However, for every line that matches the <code>/regex/</code>, we exchange the hold buffer with the pattern space by using the <code>x</code> command, print it with the <code>p</code> command, and then exchange the buffers back, so that if the next line matches the <code>/regex/</code> again, we could print the current line.</p>
+<p>Also notice the command grouping. Several commands can be grouped and
+ executed only for a specific address or range. In this one-liner the 
+command group is <code>{x;p;x}</code> and it gets executed only if the current line matches <code>/regex/</code>.</p>
+<p>Note that this one-liner doesn't work if it's the first line of the input matches <code>/regex/</code>. To fix this, we can limit the <code>p</code> command to all lines that are not the first line with the <code>1!</code> inverted address match:</p>
+<pre>sed -n '/regex/{x;1!p;x}; h'
+</pre>
+<p>Notice the <code>1!p</code>. This says - call the <code>p</code> command on all the lines that are not the 1st line. This prevents anything to be printed in case the first line matches <code>/regex/</code>.</p>
+<p>Well, that's it! I think this introduction explains the most 
+important concepts in sed, including various command line switches, the 
+four spaces and various sed commands.</p>
+<p>If you wish to learn more, I suggest you get a copy of my "<a href="http://www.catonmat.net/blog/sed-book/">Sed One-Liners Explained</a>"
+ e-book. The e-book contains exactly 100 well-explained one-liners. Once
+ you work through them, you'll have rewired your brain to "think in 
+sed". In other words, you'll have learned how to manipulate the pattern 
+space, the hold buffer and you'll know when to print the data to get the
+ results that you need.</p>
+<div class="c"><p><a href="http://www.catonmat.net/blog/sed-book/" class="nohover" title="Sed One-Liners Explained"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/cover.png"></a><br>
+<small><a href="http://www.catonmat.net/blog/sed-book/">sed book</a></small></p>
+</div>
+<p>Have fun!</p>
+<p>If you enjoy my writing, you can <a href="http://www.catonmat.net/feed/">subscribe</a> to my blog, follow me on <a href="http://twitter.com/pkrumins">Twitter</a> or <strong><a href="https://plus.google.com/102155999275405024037"><span style="color: blue">G</span><span style="color: red">o</span><span style="color: #EE9A00">o</span><span style="color: blue">g</span><span style="color: green">l</span><span style="color: red">e</span><span style="color: gray">+</span></a></strong>.</p>
+
+  </div>
+
+
+  <div class="social">
+    <div class="twitter">
+      <iframe style="position: static; visibility: visible; width: 86px; height: 20px;" data-twttr-rendered="true" title="Twitter Tweet Button" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/tweet_button.html" allowtransparency="true" id="twitter-widget-0" frameborder="0" scrolling="no"></iframe>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+    <div class="facebook">
+      
+      <iframe src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/like.html" style="border:none; overflow:hidden; width:100px; height:21px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div class="googleplus">
+      <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 70px; height: 15px;"><iframe title="+1" data-gapiattached="true" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/fastbutton.html" name="I0_1439777181230" id="I0_1439777181230" vspace="0" tabindex="0" style="position: static; top: 0px; width: 70px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div style="margin-bottom: 0.5em">
+<script async="" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/adsbygoogle.js"></script>
+<!-- catonmat before article 468x60 blue -->
+<ins data-adsbygoogle-status="done" class="adsbygoogle" style="display:inline-block;width:468px;height:60px" data-ad-client="ca-pub-0433925538517663" data-ad-slot="9246395270"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" frameborder="0" height="60" scrolling="no" width="468"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+
+  <div class="footer">
+      <div class="tags"><a href="http://www.catonmat.net/tags" title="All catonmat tags" class="tags_link">Tags</a>:
+        
+        <a href="http://www.catonmat.net/tag/bar" title="See all pages tagged &quot;bar&quot;">bar</a>, 
+        <a href="http://www.catonmat.net/tag/ebook" title="See all pages tagged &quot;ebook&quot;">ebook</a>, 
+        <a href="http://www.catonmat.net/tag/foo" title="See all pages tagged &quot;foo&quot;">foo</a>, 
+        <a href="http://www.catonmat.net/tag/hold-buffer" title="See all pages tagged &quot;hold buffer&quot;">hold buffer</a>, 
+        <a href="http://www.catonmat.net/tag/input-space" title="See all pages tagged &quot;input space&quot;">input space</a>, 
+        <a href="http://www.catonmat.net/tag/introduction" title="See all pages tagged &quot;introduction&quot;">introduction</a>, 
+        <a href="http://www.catonmat.net/tag/output-buffer" title="See all pages tagged &quot;output buffer&quot;">output buffer</a>, 
+        <a href="http://www.catonmat.net/tag/pattern-space" title="See all pages tagged &quot;pattern space&quot;">pattern space</a>, 
+        <a href="http://www.catonmat.net/tag/sed" title="See all pages tagged &quot;sed&quot;">sed</a>, 
+        <a href="http://www.catonmat.net/tag/sed-addresses" title="See all pages tagged &quot;sed addresses&quot;">sed addresses</a>, 
+        <a href="http://www.catonmat.net/tag/sed-commands" title="See all pages tagged &quot;sed commands&quot;">sed commands</a>, 
+        <a href="http://www.catonmat.net/tag/sed-ranges" title="See all pages tagged &quot;sed ranges&quot;">sed ranges</a>
+      </div>
+
+    <span class="comment_url">
+        <a href="http://www.catonmat.net/blog/worlds-best-introduction-to-sed/#comments" title="Comment on &quot;World's best introduction to sed&quot;"><strong>15</strong> Comments</a>
+    </span>
+
+    <span class="views">
+       <strong>114,320</strong> Views
+    </span>
+
+    <span class="short_url">
+      Short URL <input size="30" value="http://catonmat.net/p/273" onclick="this.select()" readonly="readonly" type="text">
+    </span>
+  </div>
+
+
+  <div class="related-posts">
+    <h3>Related Posts</h3>
+    <ul>
+      <li><a href="http://www.catonmat.net/blog/sed-book/" title="Announcing my second e-book &quot;Sed One-Liners Explained&quot;">Announcing my second e-book "Sed One-Liners Explained"</a></li>
+      <li><a href="http://www.catonmat.net/blog/sed-stream-editor-cheat-sheet/" title="Sed - UNIX Stream Editor - Cheat Sheet">Sed - UNIX Stream Editor - Cheat Sheet</a></li>
+      <li><a href="http://www.catonmat.net/blog/sed-one-liners-explained-part-three/" title="Famous Sed One-Liners Explained, Part III: Selective Deletion of Certain Lines and Special Applications">Famous Sed One-Liners Explained, Part III: Selective Deletion of Certain Lines and Special Applications</a></li>
+      <li><a href="http://www.catonmat.net/blog/plain-text-versions-of-sed-ed-and-awk-cheat-sheets/" title="Plain Text Versions of Sed, ed and AWK Cheat Sheets">Plain Text Versions of Sed, ed and AWK Cheat Sheets</a></li>
+      <li><a href="http://www.catonmat.net/blog/golfing-the-extraction-of-ip-addresses-from-ifconfig/" title="Golfing the Extraction of IP Addresses from ifconfig">Golfing the Extraction of IP Addresses from ifconfig</a></li>
+      <li><a href="http://www.catonmat.net/blog/proof-that-sed-is-turing-complete/" title="A proof that Unix utility &quot;sed&quot; is Turing complete">A proof that Unix utility "sed" is Turing complete</a></li>
+      <li><a href="http://www.catonmat.net/blog/sed-one-liners-explained-part-two/" title="Famous Sed One-Liners Explained, Part II: Selective Printing of Certain Lines">Famous Sed One-Liners Explained, Part II: Selective Printing of Certain Lines</a></li>
+      <li><a href="http://www.catonmat.net/blog/awk-book/" title="Announcing my first e-book &quot;Awk One-Liners Explained&quot;">Announcing my first e-book "Awk One-Liners Explained"</a></li>
+      <li><a href="http://www.catonmat.net/blog/perl-book/" title="Announcing my third e-book &quot;Perl One-Liners Explained&quot;">Announcing my third e-book "Perl One-Liners Explained"</a></li>
+      <li><a href="http://www.catonmat.net/blog/introduction-to-perl-one-liners/" title="Introduction to Perl one-liners">Introduction to Perl one-liners</a></li>
+      <li>
+    </li></ul>
+  </div>
+
+  <a name="comments"></a>
+  <div class="comments">
+    <div id="comment_list"><!-- TODO: change id to class -->
+      <h3>Comments</h3>
+        
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-33721"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/eb2d36ea5e24d8f788e2884f689e2099.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://f00li5h.pin21.com/" title="http://f00li5h.pin21.com/" rel="nofollow">f00li5h</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/f00li5h" title="f00li5h on Twitter" rel="nofollow">f00li5h</a></span>
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/33721" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 19, 2011, 04:55</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>good work kit, nice post!</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/33721?reply" class="reply" id="reply_a_33721" title="Reply to comment by f00li5h">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-34834"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/a96c9331b6ebb3aa112aa7b5e9dad912.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://bluesmoon.info/" title="http://bluesmoon.info/" rel="nofollow">Philip Tellis</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/bluesmoon" title="bluesmoon on Twitter" rel="nofollow">bluesmoon</a></span>
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/34834" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 08, 2011, 04:28</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>A few years ago I wrote a post on programming patterns in sed: 
+http://tech.bluesmoon.info/2008/09/programming-patterns-in-sed.html</p>
+<p>Always a fun tool to have in your toolbox.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/34834?reply" class="reply" id="reply_a_34834" title="Reply to comment by Philip Tellis">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-35384"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/169faafe8ef76e16faa630fe59b42ff0.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Patillotes</span>
+
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/35384" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 26, 2011, 16:42</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Do you know "Minimal Perl"?. It's a book about, mostly, Perl 
+one-liners and using it as a replacement for sed, grep, awk and find.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/35384?reply" class="reply" id="reply_a_35384" title="Reply to comment by Patillotes">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <a name="comment-35424"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/9055b6c1d07708555ec584d03c387f15.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net/" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/35424" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">October 28, 2011, 08:29</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>I didn't know about this book. I just took a look at the preview and it looks awesome!</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/35424?reply" class="reply" id="reply_a_35424" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-36102"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/b814b5edd9d461dbf7ebc90a8abe08b0.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Dwayne</span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/dwayne_allen" title="dwayne_allen on Twitter" rel="nofollow">dwayne_allen</a></span>
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/36102" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">November 21, 2011, 14:50</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Go up to your last command on AIX 5.3 and ran into problems.  It 
+tried to run it as written and kept getting a parse error.  Adding a 
+semicolon after the second x got rid of the parse error, and it seems to
+ be matching something, but it is printing a blank line.</p>
+<p>Command:  <br>
+sed -n '/test/{x;p;x;}; h' &lt; /tmp/sedtest</p>
+<p>File:<br>
+cat /tmp/sedtest<br>
+Yay<br>
+test<br>
+No<br>
+tset</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/36102?reply" class="reply" id="reply_a_36102" title="Reply to comment by Dwayne">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-39743"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/4df4eb6e95fbb9b2d1992e2ddde80a09.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.deshpandechirag.wordpress.com/" title="http://www.deshpandechirag.wordpress.com" rel="nofollow">Chirag Deshpande</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/chiragde" title="chiragde on Twitter" rel="nofollow">chiragde</a></span>
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/39743" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 17, 2012, 13:17</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Peteris,<br>
+-i option is not working with sed. Is it platform specific? What are other synonyms of it? I am using HP-UX BTW.</p>
+<p>Thanks,<br>
+Chirag.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/39743?reply" class="reply" id="reply_a_39743" title="Reply to comment by Chirag Deshpande">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <a name="comment-39744"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/9055b6c1d07708555ec584d03c387f15.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.catonmat.net/" title="http://www.catonmat.net">Peteris Krumins</a></span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/pkrumins" title="pkrumins on Twitter">pkrumins</a></span>
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/39744" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 17, 2012, 14:22</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>It's an option for modern sed implementations. HPUX doesn't have 
+it. You just have to do what -i does yourself, like: sed ... file &gt; 
+file-copy; mv file-copy file</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/39744?reply" class="reply" id="reply_a_39744" title="Reply to comment by Peteris Krumins">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-43572"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/18833b16a3f156fd212384e5ccb83ebb.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Visu</span>
+
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/43572" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">April 11, 2013, 20:12</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>How to write a sed command for:<br>
+match a word from the output of a command. </p>
+<p>fw_printenv | grep bootcmd<br>
+When i execute above command i get the following output<br>
+bootcmd=run sdboot3</p>
+<p>Now I need a something of the sort <br>
+fw_printenv | grep bootcmd | sed ......<br>
+which gives sdboot3 and no new line at the end.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/43572?reply" class="reply" id="reply_a_43572" title="Reply to comment by Visu">Reply to this comment</a>
+    </div>
+</div>
+
+
+    
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <a name="comment-47223"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/ed2ee94a233498ee470282f72e65c8d9.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Kevin</span>
+
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/47223" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">March 04, 2014, 23:40</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>There's probably an easier way than this, but...</p>
+<p>Command: sed -n '/bootcmd=run /{s/bootcmd=run \(.*\)/\1/;p;}' sedtemp.txt</p>
+<p>File: cat sedtemp.txt<br>
+not it<br>
+not it2<br>
+not it3<br>
+bootcmd=run sdboot3<br>
+not the line<br>
+nte the droid your looking fO<br>
+bootcmd=run sdbootanotherone<br>
+r</p>
+<p>Output: <br>
+sdboot3<br>
+sdbootanotherone</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/47223?reply" class="reply" id="reply_a_47223" title="Reply to comment by Kevin">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 20px">
+  <a name="comment-62415"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/1d076b58400e0f2afe861108a508266f.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.sed-book.com/" title="http://www.sed-book.com/" rel="nofollow">Daniel Goldman</a></span>
+
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/62415" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">August 24, 2014, 02:15</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Peteris has a nice blog. Here are some ways:</p>
+<p>$ cmd | grep bootcmd | grep -o sdboot3 # GNU grep</p>
+<p>$ cmd | sed -n "s/.*bootcmd.*sdboot3.*/sdboot3/p"</p>
+<p>If you want to eliminate the newline, use tr command.</p>
+<p>Daniel Goldman - http://www.sed-book.com/</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/62415?reply" class="reply" id="reply_a_62415" title="Reply to comment by Daniel Goldman">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-44686"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/e472683f28639be46f139167f67c250e.png" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Ankit Gupta</span>
+
+      
+      <span class="twitter"><a href="http://twitter.com/ankkit_g" title="ankkit_g on Twitter" rel="nofollow">ankkit_g</a></span>
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/44686" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">May 20, 2013, 05:41</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Great Introduction to sed Peteris. Understood all but the hold buffer concept.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/44686?reply" class="reply" id="reply_a_44686" title="Reply to comment by Ankit Gupta">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-46089"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/378315f8cf1daaf1641ac2ff7dc1adc1.png" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Steven Eckhoff</span>
+
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/46089" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">September 25, 2013, 18:05</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Thanks!</p>
+<p>This is a great intro.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/46089?reply" class="reply" id="reply_a_46089" title="Reply to comment by Steven Eckhoff">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-47102"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/28b7afe3119de19dd1f8af3a8ed47cc9.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">Carl</span>
+
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/47102" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">February 12, 2014, 17:08</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Great post! Clear, concise, to the point - just the way I like it. Keep up the good work.</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/47102?reply" class="reply" id="reply_a_47102" title="Reply to comment by Carl">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-54404"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/d46084cffed543c6611cfa4dd445c8f6.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      
+      <span class="name"><a href="http://www.digitalsignallabs.com/" title="http://www.digitalsignallabs.com" rel="nofollow">Randy</a></span>
+
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/54404" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">July 12, 2014, 02:16</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>Very well done! Thank you!</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/54404?reply" class="reply" id="reply_a_54404" title="Reply to comment by Randy">Reply to this comment</a>
+    </div>
+</div>
+
+
+  
+
+
+<div class="icomment" style="margin-left: 0px">
+  <a name="comment-75678"></a>
+  <div class="gravatar">
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/a31da7fbee58d21f926b4259e5625f6e.jpg" height="40" width="40">
+  </div>
+  <div class="userinfo">
+    <div>
+      <span class="name">baroudi safwene</span>
+
+
+
+        <span class="permalink"><a href="http://www.catonmat.net/c/75678" title="Permanent link to the comment">Permalink</a></span>
+    </div>
+    <div>
+      <span class="time">March 07, 2015, 14:13</span>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="comment_text">
+    <p>thank you very much<br>
+nice approach<br>
+you made it look easy</p>
+
+  </div>
+
+    <div class="comment_reply">
+      <a href="http://www.catonmat.net/c/75678?reply" class="reply" id="reply_a_75678" title="Reply to comment by baroudi safwene">Reply to this comment</a>
+    </div>
+</div>
+
+
+
+
+        <script>
+          catonmat.init_comments('page', '');
+        </script>
+    </div>
+
+    <div class="add">
+      <h3>Leave a new comment</h3>
+      
+
+<div id="comment_form">
+    <div id="comment_error" class="hidden"></div>
+
+    <div id="comment_preview" class="hidden"></div>
+
+  <form action="/blog/worlds-best-introduction-to-sed" method="POST">
+    <input name="page_id" id="page_id" value="273" type="hidden">
+    <input name="parent_id" id="parent_id" value="" type="hidden">
+
+    <p>
+      <label for="name" class="name">Name:</label>
+      <input tabindex="1" name="name" id="name" maxlength="64" size="30" type="text">
+    </p>
+    <div class="clear"></div>
+
+    <p>
+      <label for="email" class="email">E-mail:</label>
+      <input tabindex="2" name="email" id="email" maxlength="128" size="30" type="text">
+      <span class="small">(<a href="#" id="why_email_a" title="Why do I need your email?">why do I need your e-mail?</a>)</span>
+    </p>
+    <div class="clear"></div>
+
+    <div id="why_email_explain" class="hidden">
+      <p>
+        It would be nice if you left your e-mail address. Sometimes I 
+want to send a private message, or just thank for the great comment. 
+Having your e-mail really helps.
+      </p>
+      <p><b>I will never ever spam you.</b></p>
+    </div>
+
+    <p>
+      <label for="twitter" class="twitter">Twitter:</label>
+      <input tabindex="3" name="twitter" id="twitter" maxlength="128" size="30" type="text">
+      <span class="small">(Your twitter name, if you have one. (I'm <a href="http://twitter.com/pkrumins">@pkrumins</a>, btw.))</span>
+    </p>
+    <div class="clear"></div>
+
+    <p class="website">
+      <label for="website" class="website">Website:</label>
+      <input tabindex="4" name="website" id="website" maxlength="256" size="50" type="text">
+    </p>
+    <div class="clear"></div>
+
+    <div class="c">
+      <label for="comment" class="comment">Comment:</label>
+      <div class="a">
+        <p></p>
+        <textarea tabindex="5" name="comment" rows="8" cols="50" id="comment"></textarea>
+        <script>
+          if ($.browser.safari) {
+            /* i can't solve the 2px offset bug in chrome via css manipulations */
+            $('#comment_form .a').css('margin-left', '94px');
+
+            /* i also can't solve a problem of labels being offset by 3px in vertical direction */
+            $('#comment_form label').css('margin-top','3px')
+          }
+        </script>
+        <div class="comment-help-link"><a href="#" id="ch">Comment Help</a></div>
+        <div class="clear"></div>
+        <div id="comment_help" class="hidden">
+          <p>* use <code>&lt;pre&gt;...&lt;/pre&gt;</code> to insert a plain code snippet.</p>
+          <p>
+            * use <code>&lt;pre lang="<strong>lang</strong>"&gt;...&lt;/pre&gt;</code> to insert a syntax highlighted code snippet.<br>
+            For example, <code>&lt;pre lang="<strong>python</strong>"&gt;...&lt;/pre&gt;</code> will insert Python highlighted code.
+          </p>
+          <p>* use <code>&lt;code&gt;...&lt;/code&gt;</code> to highlight a variable or a single shell command.</p>
+          <p>* use <code>&lt;a href="url" nospam&gt;title&lt;/a&gt;</code> to insert links.</p>
+          <p>* use other HTML tags, such as, <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;blockquote&gt;</code>, <code>&lt;sup&gt;</code>, <code>&lt;sub&gt;</code> for text formatting.</p>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="e">
+      <p>
+        <input name="captcha_nr" value="18" type="hidden">
+        
+        Type the word "<b>sandbox_273</b>": <input tabindex="6" name="commentc" size="10" type="text"> (just to make sure you're a human)
+      </p>
+
+      <p>
+        <input tabindex="6" id="preview" name="preview" value="Preview comment" type="submit">
+        <input tabindex="7" id="submit" name="submit" value="Submit comment" type="submit">
+      </p>
+
+      <p>
+        <span id="comment_please">Please <b>preview</b> the comment before submitting to make sure it's OK.<br></span>
+      </p>
+    </div>
+
+  </form>
+</div>
+
+
+      <script>
+        catonmat.init_why_email();
+        catonmat.init_comment_help();
+        catonmat.init_preview_comment();
+        catonmat.init_submit_comment('');
+      </script>
+    </div>
+  </div>
+
+  <div class="after_comments_ads">
+    <h3>Advertisements</h3>
+    <div class="after_comments_ad300">
+      <script async="" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/adsbygoogle.js"></script>
+      <!-- catonmat after comments -->
+      <ins data-adsbygoogle-status="done" class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-0433925538517663" data-ad-slot="2261906812"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;" frameborder="0" height="250" scrolling="no" width="300"></iframe></ins></ins></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div class="clear">
+    </div>
+  </div>
+</div>
+
+
+
+
+        </div>
+        <div id="sidebar">
+          
+  <!-- begin sidebar.tmpl.html -->
+
+<div class="item search">
+  <form name="search" action="/search" method="GET">
+    <input name="q" type="text">
+    <input name="submit" value="Search" type="submit">
+  </form>
+</div>
+
+<!-- About the site -->
+<div class="item aboutsite">
+  <div class="title">About the site:</div>
+  <div class="content">
+    <p>
+      <a href="http://www.catonmat.net/about/" title="About Peteris Krumins">
+        <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/peteris-krumins-small.jpg" alt="Peteris Krumins" class="peter">
+      </a>
+      Peteris Krumins' blog about programming, hacking, software reuse, 
+software ideas, computer security, browserling, google and technology.
+    </p>
+    <div class="hr"></div>
+    <p class="contact smallmargin">Reach me at:</p>
+    <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/peter-catonmat-net.gif" class="eml">
+    <p class="contact">Or meet me on:</p>
+    <div class="social">
+      <ul>
+        <li class="twitter"><a href="http://www.twitter.com/pkrumins" title="Peteris Krumins on Twitter"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/twitter-16x16.gif">Twitter</a></li>
+        <li class="facebook"><a href="http://www.facebook.com/pkrumins" title="Peteris Krumins on Facebook"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/facebook-16x16.gif">Facebook</a></li>
+        <!-- TODO: exchange plurk with github -->
+        <li class="plurk almost-last"><a href="http://www.plurk.com/pkrumins" title="Peteris Krumins on Plurk"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/plurk-16x16.gif">Plurk</a></li>
+        <li class="more"><a href="#" id="a-more-contacts" class="more" title="More ways to contact Peteris Krumins"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/more-10x10.gif" class="more">more</a></li>
+      </ul>
+      <div class="clear"></div>
+      <script>
+        catonmat.init_toggle_contacts();
+      </script>
+    </div>
+    <div class="social hidden" id="div-more-contacts">
+      <ul>
+        <li class="github"><a href="http://www.github.com/pkrumins" title="Peteris Krumins programming projects on GitHub"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/github-16x16.gif">GitHub</a></li>
+        <li class="linkedin"><a href="http://www.linkedin.com/in/pkrumins" title="Peteris Krumins CV on LinkedIn"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/linkedin-16x16.gif">LinkedIn</a></li>
+        <li class="friendfeed"><a href="http://www.friendfeed.com/pkrumins" title="Peteris Krumins on FriendFeed"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/friendfeed-16x16.gif">FriendFeed</a></li>
+      </ul>
+      <div class="clear"></div>
+      <div style="padding-bottom: 5px"></div>
+      <ul>
+        <li><a href="http://google.com/profiles/peteris.krumins" title="Peteris Krumins on Google Plus"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/google-plus-16x16.png">Google Plus</a></li>
+      </ul>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Subscribe to my posts -->
+<div class="item subscribe">
+  <div class="title">Subscribe to my posts:</div>
+  <div class="content">
+    <p>Subscribe through an RSS feed:</p>
+    <p class="feed">
+      <a href="http://feeds2.feedburner.com/catonmat" rel="alternate" type="application/rss+xml" class="rss" title="Catonmat RSS Feed">
+        <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/rss-feed-16x16.png" class="rss">
+        <img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/feedcounter-crontab.gif" class="counter" height="19" width="88">
+      </a>
+      <span class="rss">(<a href="http://www.catonmat.net/what-is-rss/" title="What is an RSS feed?">what is rss?</a>)</span>
+    </p>
+    <div class="hr"></div>
+    <p>Subscribe through email:</p>
+    <!-- begin generated by feedburner.com -->
+    <p>
+      </p><form style="border:1px solid #ccc;padding:3px;text-align:center;" action="http://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('http://feedburner.google.com/fb/a/mailverify?uri=catonmat', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+        <p>Enter your email address:</p>
+        <p>
+          <input style="width:140px" name="email" type="text">
+        </p>
+        <input value="catonmat" name="uri" type="hidden">
+        <input name="loc" value="en_US" type="hidden">
+        <p>
+          <input value="Subscribe" type="submit">
+        </p>
+        <p>
+          Delivered by <a href="http://feedburner.google.com/" target="_blank">FeedBurner</a>
+        </p>
+      </form>
+    <p></p>
+    <!-- end generated by feedburner.com -->
+  </div>
+</div>
+
+
+<div class="item">
+  <div class="title">My Amazon Wish List</div>
+  <div class="content">
+    <p>I love to read science books. They make my day and I get ideas for awesome blog posts, such as <a href="http://www.catonmat.net/blog/busy-beaver/">Busy Beaver</a>, <a href="http://www.catonmat.net/blog/on-functors/">On Functors</a>, <a href="http://www.catonmat.net/blog/recursive-regular-expressions/">Recursive Regular Expressions</a> and <a href="http://www.catonmat.net/archive">many others</a>.</p>
+
+    <p>Take a look at my <a href="http://www.amazon.com/registry/wishlist/QDKYO6OQUU4O?reveal=unpurchased&amp;filter=all&amp;sort=priority&amp;layout=standard" title="Peteris Krumins Amazon Wish List"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/amazon-16x16.gif" style="position: relative; top: 5px; padding-right: 5px">Amazon wish list</a>, if you're curious about what I have planned reading next, and want to surprise me. :)</p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">My Books</div>
+  <div class="content">
+    <ul>
+      <li><a href="http://www.catonmat.net/blog/awk-book/" title="Awk Programming Book">Awk Programming Book</a></li>
+      <li><a href="http://www.catonmat.net/blog/sed-book/" title="Sed Programming Book">Sed Programming Book</a></li>
+      <li><a href="http://www.catonmat.net/blog/perl-book/" title="Perl Programming Book">Perl Programming Book</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">My Other Websites</div>
+  <div class="content">
+    <ul>
+      <li><a href="http://freescienceonline.blogspot.com/">Free Science Online</a></li>
+      <li><a href="http://www.freesciencelectures.com/">Free Science Videos</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Top Ten Articles:</div>
+  <div class="content">
+    <ul>
+     <li><a href="http://www.catonmat.net/blog/top-ten-one-liners-from-commandlinefu-explained/" title="Read &quot;Top Ten One-Liners from CommandLineFu Explained&quot; (has been read 1,207,797 times)">Top Ten One-Liners from CommandLineFu Explained</a></li>
+     <li><a href="http://www.catonmat.net/blog/my-job-interview-at-google/" title="Read &quot;My Job Interview at Google&quot; (has been read 1,036,263 times)">My Job Interview at Google</a></li>
+     <li><a href="http://www.catonmat.net/blog/sed-one-liners-explained-part-one/" title="Read &quot;Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution&quot; (has been read 925,444 times)">Famous Sed One-Liners Explained, Part I: File Spacing, Numbering and Text Conversion and Substitution</a></li>
+     <li><a href="http://www.catonmat.net/blog/mit-introduction-to-algorithms-part-one/" title="Read &quot;MIT's Introduction to Algorithms, Lectures 1 and 2: Analysis of Algorithms&quot; (has been read 871,876 times)">MIT's Introduction to Algorithms, Lectures 1 and 2: Analysis of Algorithms</a></li>
+     <li><a href="http://www.catonmat.net/blog/awk-one-liners-explained-part-one/" title="Read &quot;Awk One-Liners Explained, Part I: File Spacing, Numbering and Calculations&quot; (has been read 734,180 times)">Awk One-Liners Explained, Part I: File Spacing, Numbering and Calculations</a></li>
+     <li><a href="http://www.catonmat.net/blog/the-definitive-guide-to-bash-command-line-history/" title="Read &quot;The Definitive Guide to Bash Command Line History&quot; (has been read 711,833 times)">The Definitive Guide to Bash Command Line History</a></li>
+     <li><a href="http://www.catonmat.net/blog/linux-socks5-proxy/" title="Read &quot;Turn any Linux computer into SOCKS5 proxy in one command&quot; (has been read 664,114 times)">Turn any Linux computer into SOCKS5 proxy in one command</a></li>
+     <li><a href="http://www.catonmat.net/blog/low-level-bit-hacks-you-absolutely-must-know/" title="Read &quot;Low Level Bit Hacks You Absolutely Must Know&quot; (has been read 624,408 times)">Low Level Bit Hacks You Absolutely Must Know</a></li>
+     <li><a href="http://www.catonmat.net/http-proxy-in-nodejs/" title="Read &quot;A HTTP Proxy Server in 20 Lines of node.js Code&quot; (has been read 612,849 times)">A HTTP Proxy Server in 20 Lines of node.js Code</a></li>
+     <li><a href="http://www.catonmat.net/blog/bash-vi-editing-mode-cheat-sheet/" title="Read &quot;Working Productively in Bash's Vi Command Line Editing Mode (with Cheat Sheet)&quot; (has been read 592,745 times)">Working Productively in Bash's Vi Command Line Editing Mode (with Cheat Sheet)</a></li>
+    </ul>
+    <p class="moreinfo">
+      <a href="http://www.catonmat.net/archive?sorted_by=views" title="Top catonmat articles">See all top articles</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Top Ten Downloads:</div>
+  <div class="content">
+    <ul>
+    <li><a href="http://www.catonmat.net/download/bash-history-cheat-sheet.pdf" title="Download &quot;bash history cheat sheet (.pdf)&quot;">bash history cheat sheet (.pdf)</a> (<span title="Total 198,360 downloads">198,360</span>)</li>
+    <li><a href="http://www.catonmat.net/download/awk.cheat.sheet.pdf" title="Download &quot;awk cheat sheet (.pdf)&quot;">awk cheat sheet (.pdf)</a> (<span title="Total 193,831 downloads">193,831</span>)</li>
+    <li><a href="http://www.catonmat.net/download/perl1line.txt" title="Download &quot;perl1line.txt&quot;">perl1line.txt</a> (<span title="Total 189,826 downloads">189,826</span>)</li>
+    <li><a href="http://www.catonmat.net/download/sed.stream.editor.cheat.sheet.pdf" title="Download &quot;sed stream editor cheat sheet (.pdf)&quot;">sed stream editor cheat sheet (.pdf)</a> (<span title="Total 143,230 downloads">143,230</span>)</li>
+    <li><a href="http://www.catonmat.net/download/perl.pack.unpack.printf.cheat.sheet.pdf" title="Download &quot;perl's pack/unpack and printf cheat sheet (.pdf)&quot;">perl's pack/unpack and printf cheat sheet (.pdf)</a> (<span title="Total 132,659 downloads">132,659</span>)</li>
+    <li><a href="http://www.catonmat.net/download/screen.cheat.sheet.pdf" title="Download &quot;screen cheat sheet (.pdf)&quot;">screen cheat sheet (.pdf)</a> (<span title="Total 132,521 downloads">132,521</span>)</li>
+    <li><a href="http://www.catonmat.net/download/bash-vi-editing-mode-cheat-sheet.pdf" title="Download &quot;bash vi editing mode cheat sheet (.pdf)&quot;">bash vi editing mode cheat sheet (.pdf)</a> (<span title="Total 124,802 downloads">124,802</span>)</li>
+    <li><a href="http://www.catonmat.net/download/perl.predefined.variables.pdf" title="Download &quot;perl's special variable cheat sheet (.pdf)&quot;">perl's special variable cheat sheet (.pdf)</a> (<span title="Total 116,497 downloads">116,497</span>)</li>
+    <li><a href="http://www.catonmat.net/download/awk.cheat.sheet.txt" title="Download &quot;awk cheat sheet (.txt)&quot;">awk cheat sheet (.txt)</a> (<span title="Total 113,828 downloads">113,828</span>)</li>
+    <li><a href="http://www.catonmat.net/download/david_pogue-bill_gates_song.mp3" title="Download &quot;the bill gates song.mp3 (musical geek friday #8)&quot;">the bill gates song.mp3 (musical geek friday #8)</a> (<span title="Total 96,351 downloads">96,351</span>)</li>
+    </ul>
+    <p class="moreinfo">
+      <a href="http://www.catonmat.net/downloads" title="All catonmat downloads">See all downloads</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Recent Articles:</div>
+  <div class="content">
+    <ul>
+     <li><a href="http://www.catonmat.net/blog/browserling-chrome-extension/" title="Read &quot;Browserling now has a Chrome extension!&quot; (was published on August 10, 2015)">Browserling now has a Chrome extension!</a></li>
+     <li><a href="http://www.catonmat.net/blog/eight-years-of-blogging/" title="Read &quot;Eight years of blogging. Over one million visitors in a year.&quot; (was published on July 24, 2015)">Eight years of blogging. Over one million visitors in a year.</a></li>
+     <li><a href="http://www.catonmat.net/blog/top-100-books-part-four/" title="Read &quot;My Top 100 Programming, Computer and Science Books: Part Four&quot; (was published on July 05, 2015)">My Top 100 Programming, Computer and Science Books: Part Four</a></li>
+     <li><a href="http://www.catonmat.net/blog/browserling-os-platforms/" title="Read &quot;Browserling now has multiple OS platforms!&quot; (was published on June 08, 2015)">Browserling now has multiple OS platforms!</a></li>
+     <li><a href="http://www.catonmat.net/blog/top-100-books-part-three/" title="Read &quot;My Top 100 Programming, Computer and Science Books: Part Three&quot; (was published on June 02, 2015)">My Top 100 Programming, Computer and Science Books: Part Three</a></li>
+     <li><a href="http://www.catonmat.net/blog/top-100-books-part-two/" title="Read &quot;My Top 100 Programming, Computer and Science Books: Part Two&quot; (was published on May 03, 2015)">My Top 100 Programming, Computer and Science Books: Part Two</a></li>
+     <li><a href="http://www.catonmat.net/blog/bose-qc25-programming-headphones/" title="Read &quot;Bose QC25: The perfect headphones for programming and concentration&quot; (was published on April 30, 2015)">Bose QC25: The perfect headphones for programming and concentration</a></li>
+     <li><a href="http://www.catonmat.net/blog/top-100-books-part-one/" title="Read &quot;My Top 100 Programming, Computer and Science Books: Part One&quot; (was published on April 26, 2015)">My Top 100 Programming, Computer and Science Books: Part One</a></li>
+     <li><a href="http://www.catonmat.net/blog/browserling-live-api/" title="Read &quot;Announcing Browserling's Live API&quot; (was published on April 20, 2015)">Announcing Browserling's Live API</a></li>
+     <li><a href="http://www.catonmat.net/blog/fogcreek-interview/" title="Read &quot;I was interviewed by Fog Creek&quot; (was published on April 15, 2015)">I was interviewed by Fog Creek</a></li>
+    </ul>
+    <p class="moreinfo">
+      <a href="http://www.catonmat.net/archive" title="All catonmat articles">See more detailed list of recent articles</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Article Categories:</div>
+  <div class="content">
+    <ul>
+      
+      <li><a href="http://www.catonmat.net/category/awk-programming" title="Awk Programming: AWK is a very important UNIX programming language for manipulating text very quickly. I have mastered it and now I am teaching others.">Awk Programming</a> (<span title="There are 8 articles in &quot;Awk Programming&quot; category">8</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/stackvm-startup" title="Browserling Startup: Articles about my and James Halliday startup - Browserling (earlier called StackVM) - which brings virtual machines to the web!">Browserling Startup</a> (<span title="There are 32 articles in &quot;Browserling Startup&quot; category">32</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/cheat-sheets" title="Cheat Sheets: All kinds of programming and computer science cheat sheets - vt100/ansi cheat sheet, shell emacs editing mode cheat sheet, iptables cheat sheets and many many others.">Cheat Sheets</a> (<span title="There are 13 articles in &quot;Cheat Sheets&quot; category">13</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/computer-science" title="Computer Science: I love computer science.">Computer Science</a> (<span title="There are 9 articles in &quot;Computer Science&quot; category">9</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/hackers-approach" title="Hacker's Approach: Using the hacker's approach one can develop cool software in a matter of hours without really going into details how it all works but using the right pieces and putting them together. Also a real hacker would be able to do the right things with the wrong tools.">Hacker's Approach</a> (<span title="There are 8 articles in &quot;Hacker's Approach&quot; category">8</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/howto" title="Howto: Howto guides - howto download youtube videos, how to upload them, how to be a real hacker, how to become immortal, etc ;)">Howto</a> (<span title="There are 12 articles in &quot;Howto&quot; category">12</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/idea-for-later" title="Idea for Later: Ideas that I want to build at some time later.">Idea for Later</a> (<span title="There are 1 articles in &quot;Idea for Later&quot; category">1</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/interviews" title="Interviews: Interviews with me, Peteris Krumins.">Interviews</a> (<span title="There are 6 articles in &quot;Interviews&quot; category">6</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/introduction-to-algorithms" title="Introduction to Algorithms: Analysis of MIT's &quot;Introduction to Algorithms&quot; video lectures. Contains embedded videos with timestamped list of topics and scanned lecture notes.">Introduction to Algorithms</a> (<span title="There are 15 articles in &quot;Introduction to Algorithms&quot; category">15</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/linear-algebra" title="Linear Algebra: Analysis of MIT's &quot;Linear Algebra&quot; course. Contains embedded videos with timestamped list of topics and scanned lecture notes.">Linear Algebra</a> (<span title="There are 6 articles in &quot;Linear Algebra&quot; category">6</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/mathematics" title="Mathematics: A good computer scientist has to know mathematics.">Mathematics</a> (<span title="There are 1 articles in &quot;Mathematics&quot; category">1</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/misc" title="Misc: Articles that don't fit in other categories. They include interviews and blogging related stuff.">Misc</a> (<span title="There are 20 articles in &quot;Misc&quot; category">20</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/musical-geek-friday" title="Musical Geek Friday: Really funny and geeky songs I found in my mp3 collection.">Musical Geek Friday</a> (<span title="There are 17 articles in &quot;Musical Geek Friday&quot; category">17</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/my-favorite-books" title="My Favorite Books: My favorite software development books, programming books, coding books and science books.">My Favorite Books</a> (<span title="There are 4 articles in &quot;My Favorite Books&quot; category">4</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/nodejs-modules" title="Node.js Modules: Article series &quot;node.js modules you should know about.&quot;">Node.js Modules</a> (<span title="There are 15 articles in &quot;Node.js Modules&quot; category">15</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/perl-programming" title="Perl Programming: Perl is one of the best languages ever invented. I have mastered it and now I am teaching others.">Perl Programming</a> (<span title="There are 16 articles in &quot;Perl Programming&quot; category">16</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/programming" title="Programming: I love programming. Language I know are python, perl, haskell, scheme, awk, c++  and others.">Programming</a> (<span title="There are 36 articles in &quot;Programming&quot; category">36</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/projects" title="Projects: All the various projects that I have done, they include digpicz, reddit media, reddit river, and others.">Projects</a> (<span title="There are 13 articles in &quot;Projects&quot; category">13</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/security" title="Security: Computer security is a field close to my heart.">Security</a> (<span title="There are 4 articles in &quot;Security&quot; category">4</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/the-new-catonmat" title="The New Catonmat: Everything about the new catonmat website.">The New Catonmat</a> (<span title="There are 1 articles in &quot;The New Catonmat&quot; category">1</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/tools" title="Tools: Tools - small programs that do great things. Actually this category is not very useful, I am going to merge it with some other category soon.">Tools</a> (<span title="There are 1 articles in &quot;Tools&quot; category">1</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/unix-shell" title="Unix Shell: This category contains various articles on how to work in Unix shell.">Unix Shell</a> (<span title="There are 29 articles in &quot;Unix Shell&quot; category">29</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/video-lectures" title="Video Lectures: I love watching video lectures, they make me smarter and I love it. I also like to write about what I just saw, so here are some of the lectures I have seen.">Video Lectures</a> (<span title="There are 18 articles in &quot;Video Lectures&quot; category">18</span>)</li>
+      
+      <li><a href="http://www.catonmat.net/category/visual-math-friday" title="Visual Math Friday: I have collected hundreds of visual math proofs. In these articles I explain them and prove their correctness.">Visual Math Friday</a> (<span title="There are 1 articles in &quot;Visual Math Friday&quot; category">1</span>)</li>
+    </ul>
+    <p class="moreinfo">
+      <a href="http://www.catonmat.net/categories" title="Detailed catonmat category information">See more detailed category information</a>
+    </p>
+  </div>
+</div>
+
+<div class="item list">
+  <div class="title">Article Archive:</div>
+  <div class="content">
+    <ul>
+     <li><a href="http://www.catonmat.net/archive/2015/08" title="All articles written in August, 2015" rel="nofollow">August, 2015</a> (<span title="1 articles were published in August, 2015">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2015/07" title="All articles written in July, 2015" rel="nofollow">July, 2015</a> (<span title="2 articles were published in July, 2015">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2015/06" title="All articles written in June, 2015" rel="nofollow">June, 2015</a> (<span title="2 articles were published in June, 2015">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2015/05" title="All articles written in May, 2015" rel="nofollow">May, 2015</a> (<span title="1 articles were published in May, 2015">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2015/04" title="All articles written in April, 2015" rel="nofollow">April, 2015</a> (<span title="6 articles were published in April, 2015">6</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2015/03" title="All articles written in March, 2015" rel="nofollow">March, 2015</a> (<span title="1 articles were published in March, 2015">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2015/02" title="All articles written in February, 2015" rel="nofollow">February, 2015</a> (<span title="1 articles were published in February, 2015">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2015/01" title="All articles written in January, 2015" rel="nofollow">January, 2015</a> (<span title="1 articles were published in January, 2015">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/12" title="All articles written in December, 2014" rel="nofollow">December, 2014</a> (<span title="1 articles were published in December, 2014">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/11" title="All articles written in November, 2014" rel="nofollow">November, 2014</a> (<span title="1 articles were published in November, 2014">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/10" title="All articles written in October, 2014" rel="nofollow">October, 2014</a> (<span title="2 articles were published in October, 2014">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/09" title="All articles written in September, 2014" rel="nofollow">September, 2014</a> (<span title="1 articles were published in September, 2014">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/08" title="All articles written in August, 2014" rel="nofollow">August, 2014</a> (<span title="1 articles were published in August, 2014">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/07" title="All articles written in July, 2014" rel="nofollow">July, 2014</a> (<span title="1 articles were published in July, 2014">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/06" title="All articles written in June, 2014" rel="nofollow">June, 2014</a> (<span title="1 articles were published in June, 2014">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/05" title="All articles written in May, 2014" rel="nofollow">May, 2014</a> (<span title="1 articles were published in May, 2014">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/04" title="All articles written in April, 2014" rel="nofollow">April, 2014</a> (<span title="1 articles were published in April, 2014">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/03" title="All articles written in March, 2014" rel="nofollow">March, 2014</a> (<span title="3 articles were published in March, 2014">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/02" title="All articles written in February, 2014" rel="nofollow">February, 2014</a> (<span title="3 articles were published in February, 2014">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2014/01" title="All articles written in January, 2014" rel="nofollow">January, 2014</a> (<span title="5 articles were published in January, 2014">5</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/12" title="All articles written in December, 2013" rel="nofollow">December, 2013</a> (<span title="1 articles were published in December, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/11" title="All articles written in November, 2013" rel="nofollow">November, 2013</a> (<span title="1 articles were published in November, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/10" title="All articles written in October, 2013" rel="nofollow">October, 2013</a> (<span title="1 articles were published in October, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/09" title="All articles written in September, 2013" rel="nofollow">September, 2013</a> (<span title="1 articles were published in September, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/08" title="All articles written in August, 2013" rel="nofollow">August, 2013</a> (<span title="1 articles were published in August, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/07" title="All articles written in July, 2013" rel="nofollow">July, 2013</a> (<span title="1 articles were published in July, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/06" title="All articles written in June, 2013" rel="nofollow">June, 2013</a> (<span title="1 articles were published in June, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/05" title="All articles written in May, 2013" rel="nofollow">May, 2013</a> (<span title="1 articles were published in May, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/04" title="All articles written in April, 2013" rel="nofollow">April, 2013</a> (<span title="1 articles were published in April, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/03" title="All articles written in March, 2013" rel="nofollow">March, 2013</a> (<span title="1 articles were published in March, 2013">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/02" title="All articles written in February, 2013" rel="nofollow">February, 2013</a> (<span title="2 articles were published in February, 2013">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2013/01" title="All articles written in January, 2013" rel="nofollow">January, 2013</a> (<span title="4 articles were published in January, 2013">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/12" title="All articles written in December, 2012" rel="nofollow">December, 2012</a> (<span title="1 articles were published in December, 2012">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/11" title="All articles written in November, 2012" rel="nofollow">November, 2012</a> (<span title="3 articles were published in November, 2012">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/10" title="All articles written in October, 2012" rel="nofollow">October, 2012</a> (<span title="4 articles were published in October, 2012">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/09" title="All articles written in September, 2012" rel="nofollow">September, 2012</a> (<span title="3 articles were published in September, 2012">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/08" title="All articles written in August, 2012" rel="nofollow">August, 2012</a> (<span title="2 articles were published in August, 2012">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/07" title="All articles written in July, 2012" rel="nofollow">July, 2012</a> (<span title="2 articles were published in July, 2012">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/06" title="All articles written in June, 2012" rel="nofollow">June, 2012</a> (<span title="1 articles were published in June, 2012">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/05" title="All articles written in May, 2012" rel="nofollow">May, 2012</a> (<span title="4 articles were published in May, 2012">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/04" title="All articles written in April, 2012" rel="nofollow">April, 2012</a> (<span title="4 articles were published in April, 2012">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/03" title="All articles written in March, 2012" rel="nofollow">March, 2012</a> (<span title="2 articles were published in March, 2012">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/02" title="All articles written in February, 2012" rel="nofollow">February, 2012</a> (<span title="1 articles were published in February, 2012">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2012/01" title="All articles written in January, 2012" rel="nofollow">January, 2012</a> (<span title="4 articles were published in January, 2012">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/12" title="All articles written in December, 2011" rel="nofollow">December, 2011</a> (<span title="15 articles were published in December, 2011">15</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/11" title="All articles written in November, 2011" rel="nofollow">November, 2011</a> (<span title="3 articles were published in November, 2011">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/10" title="All articles written in October, 2011" rel="nofollow">October, 2011</a> (<span title="2 articles were published in October, 2011">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/09" title="All articles written in September, 2011" rel="nofollow">September, 2011</a> (<span title="2 articles were published in September, 2011">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/08" title="All articles written in August, 2011" rel="nofollow">August, 2011</a> (<span title="3 articles were published in August, 2011">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/07" title="All articles written in July, 2011" rel="nofollow">July, 2011</a> (<span title="1 articles were published in July, 2011">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/06" title="All articles written in June, 2011" rel="nofollow">June, 2011</a> (<span title="2 articles were published in June, 2011">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/05" title="All articles written in May, 2011" rel="nofollow">May, 2011</a> (<span title="1 articles were published in May, 2011">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/04" title="All articles written in April, 2011" rel="nofollow">April, 2011</a> (<span title="1 articles were published in April, 2011">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/03" title="All articles written in March, 2011" rel="nofollow">March, 2011</a> (<span title="2 articles were published in March, 2011">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/02" title="All articles written in February, 2011" rel="nofollow">February, 2011</a> (<span title="1 articles were published in February, 2011">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2011/01" title="All articles written in January, 2011" rel="nofollow">January, 2011</a> (<span title="1 articles were published in January, 2011">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/12" title="All articles written in December, 2010" rel="nofollow">December, 2010</a> (<span title="2 articles were published in December, 2010">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/11" title="All articles written in November, 2010" rel="nofollow">November, 2010</a> (<span title="1 articles were published in November, 2010">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/10" title="All articles written in October, 2010" rel="nofollow">October, 2010</a> (<span title="2 articles were published in October, 2010">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/09" title="All articles written in September, 2010" rel="nofollow">September, 2010</a> (<span title="1 articles were published in September, 2010">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/08" title="All articles written in August, 2010" rel="nofollow">August, 2010</a> (<span title="2 articles were published in August, 2010">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/07" title="All articles written in July, 2010" rel="nofollow">July, 2010</a> (<span title="2 articles were published in July, 2010">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/06" title="All articles written in June, 2010" rel="nofollow">June, 2010</a> (<span title="2 articles were published in June, 2010">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/05" title="All articles written in May, 2010" rel="nofollow">May, 2010</a> (<span title="2 articles were published in May, 2010">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/04" title="All articles written in April, 2010" rel="nofollow">April, 2010</a> (<span title="2 articles were published in April, 2010">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/03" title="All articles written in March, 2010" rel="nofollow">March, 2010</a> (<span title="5 articles were published in March, 2010">5</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/02" title="All articles written in February, 2010" rel="nofollow">February, 2010</a> (<span title="5 articles were published in February, 2010">5</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2010/01" title="All articles written in January, 2010" rel="nofollow">January, 2010</a> (<span title="7 articles were published in January, 2010">7</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/12" title="All articles written in December, 2009" rel="nofollow">December, 2009</a> (<span title="6 articles were published in December, 2009">6</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/11" title="All articles written in November, 2009" rel="nofollow">November, 2009</a> (<span title="6 articles were published in November, 2009">6</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/10" title="All articles written in October, 2009" rel="nofollow">October, 2009</a> (<span title="2 articles were published in October, 2009">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/09" title="All articles written in September, 2009" rel="nofollow">September, 2009</a> (<span title="3 articles were published in September, 2009">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/08" title="All articles written in August, 2009" rel="nofollow">August, 2009</a> (<span title="2 articles were published in August, 2009">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/07" title="All articles written in July, 2009" rel="nofollow">July, 2009</a> (<span title="4 articles were published in July, 2009">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/06" title="All articles written in June, 2009" rel="nofollow">June, 2009</a> (<span title="1 articles were published in June, 2009">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/05" title="All articles written in May, 2009" rel="nofollow">May, 2009</a> (<span title="1 articles were published in May, 2009">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/04" title="All articles written in April, 2009" rel="nofollow">April, 2009</a> (<span title="1 articles were published in April, 2009">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/03" title="All articles written in March, 2009" rel="nofollow">March, 2009</a> (<span title="2 articles were published in March, 2009">2</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/02" title="All articles written in February, 2009" rel="nofollow">February, 2009</a> (<span title="7 articles were published in February, 2009">7</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2009/01" title="All articles written in January, 2009" rel="nofollow">January, 2009</a> (<span title="4 articles were published in January, 2009">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/12" title="All articles written in December, 2008" rel="nofollow">December, 2008</a> (<span title="8 articles were published in December, 2008">8</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/11" title="All articles written in November, 2008" rel="nofollow">November, 2008</a> (<span title="7 articles were published in November, 2008">7</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/10" title="All articles written in October, 2008" rel="nofollow">October, 2008</a> (<span title="4 articles were published in October, 2008">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/09" title="All articles written in September, 2008" rel="nofollow">September, 2008</a> (<span title="5 articles were published in September, 2008">5</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/08" title="All articles written in August, 2008" rel="nofollow">August, 2008</a> (<span title="9 articles were published in August, 2008">9</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/07" title="All articles written in July, 2008" rel="nofollow">July, 2008</a> (<span title="14 articles were published in July, 2008">14</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/06" title="All articles written in June, 2008" rel="nofollow">June, 2008</a> (<span title="4 articles were published in June, 2008">4</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/05" title="All articles written in May, 2008" rel="nofollow">May, 2008</a> (<span title="5 articles were published in May, 2008">5</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/04" title="All articles written in April, 2008" rel="nofollow">April, 2008</a> (<span title="8 articles were published in April, 2008">8</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/03" title="All articles written in March, 2008" rel="nofollow">March, 2008</a> (<span title="3 articles were published in March, 2008">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/02" title="All articles written in February, 2008" rel="nofollow">February, 2008</a> (<span title="1 articles were published in February, 2008">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2008/01" title="All articles written in January, 2008" rel="nofollow">January, 2008</a> (<span title="1 articles were published in January, 2008">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2007/12" title="All articles written in December, 2007" rel="nofollow">December, 2007</a> (<span title="1 articles were published in December, 2007">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2007/11" title="All articles written in November, 2007" rel="nofollow">November, 2007</a> (<span title="1 articles were published in November, 2007">1</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2007/10" title="All articles written in October, 2007" rel="nofollow">October, 2007</a> (<span title="3 articles were published in October, 2007">3</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2007/09" title="All articles written in September, 2007" rel="nofollow">September, 2007</a> (<span title="5 articles were published in September, 2007">5</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2007/08" title="All articles written in August, 2007" rel="nofollow">August, 2007</a> (<span title="10 articles were published in August, 2007">10</span>)</li>
+     <li><a href="http://www.catonmat.net/archive/2007/07" title="All articles written in July, 2007" rel="nofollow">July, 2007</a> (<span title="9 articles were published in July, 2007">9</span>)</li>
+    </ul>
+    <p class="moreinfo">
+      <a href="http://www.catonmat.net/archive" title="All catonmat articles">See more detailed list of all articles</a>
+    </p>
+  </div>
+</div>
+
+<div class="item">
+  <div class="title">Advertisements</div>
+  <div class="content">
+    <script async="" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/adsbygoogle.js"></script>
+    <!-- 160x600, catonmat sidebar, created 2/15/09 -->
+    <ins data-adsbygoogle-status="done" class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-0433925538517663" data-ad-slot="2288848838"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;" frameborder="0" height="600" scrolling="no" width="160"></iframe></ins></ins></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+
+
+<!-- end sidebar.tmpl.html -->
+
+
+
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        
+  <center>
+<a href="http://www.amazon.com/The-Little-Schemer-4th-Edition/dp/0262560992?tag=catonmat-20"><img src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/jelly-stains.gif"></a>
+<br>
+<a href="http://www.catonmat.net/advertise">(advertise on catonmat)</a>
+</center>
+
+
+      </div>
+    </div>
+
+<!-- google analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  var id1 = (1093316+16)/4;
+  var id2 = (81-4)/77;
+
+  _gaq.push(['_set' + 'Account', 'U' + 'A-' + id1 + '-' + id2]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!-- google plus -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=3189873;
+var sc_invisible=1;
+var sc_security="dc7255a7";
+</script>
+
+<script type="text/javascript" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/counter_xhtml.js"></script><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="World%27s%20best%20introduction%20to%20sed%20-%20good%20coders%20code,%20great%20coders%20reuse_files/postmessageRelay.html" id="oauth2relay739451420" name="oauth2relay739451420"></iframe><noscript><div class="statcounter"><a title="tumblr tracker" class="statcounter" href="http://statcounter.com/tumblr/"><img class="statcounter" src="http://c.statcounter.com/3189873/0/dc7255a7/1/" alt="tumblr tracker" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body><iframe src="" style="display: none;"></iframe></html>

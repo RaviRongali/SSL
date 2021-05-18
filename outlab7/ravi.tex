@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{adjustbox}
+\usepackage{blindtext}
+\begin{document}
+\begin{table}[h]
+\centering
+\caption{Table depicting the use of both multirow and multicolumn}
+\begin{adjustbox}
+{max width=\textwidth}
+
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c| }
+\cline{3-11}
+\multicolumn{2}{c|}{} & \multicolumn{5}{|c|}{\textbf{Basic Properties}} &  \multicolumn{4}{|c|}{\textbf{Readability}}\\
+\cline{3-11}
+\multicolumn{2}{c|}{} & \textbf{WC} & \textbf{SC} & \textbf{C-W} & \textbf{S-W} & \textbf{W-S} & \textbf{FK} & \textbf{GF} & \textbf{SMOG} & \textbf{LEX}
+\\
+\hline
+\multicolumn{1}{|c|}{\multirow{2}{*}{Baseline}} & Mean & 0.81 & 0.41 & \tempbf{0.56} & \textbf{0.46} & \textbf{0.55} & \textbf{0.60} & 0.56 & 0.57 & 0.63  \\ \cline{2-11} 
+\multicolumn{1}{|c|}{} & SD & 0.07 & 0.08 & 0.06 & 0.07 & 0.05 & 0.05 & 0.06 & 0.07 & 0.05 \\
+\hline
+\hline
+\multirow{2}{*}{\emph{ScaComp{\textsubscript{h}}}} & Mean & 0.81 & 0.41 & \tempbf{0.56} & \tempbf{0.46} & \textbf{0.55} & \textbf{0.60} & 0.56 & 0.57 & 0.63 \\ 
+\cline{2-11}
+ & SD & 0.07 & 0.08 & 0.06 & 0.07 & 0.05 & 0.05 & 0.06 & 0.07 & 0.05 \\
+\hline
+\multirow{2}{*}{\emph{ScaComp\textsubscript{l}}} & Mean & 0.81 & 0.41 & \temp{0.56} & \tempbf{0.46} & \textbf{0.55} & \textbf{0.60} & 0.56 & 0.57 & 0.63 \\ 
+\cline{2-11}
+ & SD & 0.07 & 0.08 & 0.06 & 0.07 & 0.05 & 0.05 & 0.06 & 0.07 & 0.05 \\
+\hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+\end{document}

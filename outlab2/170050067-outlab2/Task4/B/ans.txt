@@ -1,0 +1,4 @@
+if deviates after 20
+bash arthmetic is done over 64 bit
+as max num is less that 21!
+it shows negative number for 21!

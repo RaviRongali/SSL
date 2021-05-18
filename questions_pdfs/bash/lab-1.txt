@@ -1,0 +1,27 @@
+﻿
+Fun and Learn (week-1 Lab) 
+Deadline:saturday,mail zip to raviteja181131@gmail.com
+
+1.Unzip the file named ​ Data.tar.gz ​ it contains the directory named ​ students ​ which contains as many files as there are students with the naming convention of the file as follows:-
+a. roll number followed by character “_” followed by college id which is unique for each
+college followed by “_”,
+b. followed by month(2 digit) and year(4 digit) of college graduation.
+For example:- The file name ​ 17405_iitg_05_2013.txt ​ denotes the record of student with rollnumber 17405, college id​ ​ iitg & graduation date May 2013.
+Your task is to:-
+a. extract out all the files of students corresponding to college code “iitb”
+b. store it in separate directory named iitb.
+c. Among these records, if student with graduation year is after 2015, then append the end of the file the following message, “please apply for phd before Jan 2019”
+d. followed by the calendar of Jan 2019.
+2. Make a directory named ​ iit , ​ make 3 files named ​ iit1.txt, iit2.doc, iit3.odt ​ and copy the contents of the given file ​ info.txt ​ into all the three files. Copy text from line number 2 to 6 from ​ iit1.txt and paste it into a file named ​ temp.txt ​ in the ​ iit ​ directory
+3. Use ​ touch ​ command to make a file called ​ names.txt ​ in the ​ iit ​ directory, and use ​ cat​ command to copy the contents of the (given) file ​ find.txt ​ in to it. Then display the names in sorted order. Also display the contents of all the files in the ​ iit ​ directory with a single command.
+4. Display the contents of the ​ iit ​ directory in ascending​ order of their names. Then display the same according to most recent modified first. Then display the same in ascending order of their size.
+Then do all of the above but in ​ descending​ order.
+5. Count the total number of lines in all the files in the ​ iit ​ directory.
+6. Create a cron job to delete all the .txt files older than 30 minutes in the folder Data/students on every Wednesday after 17:00. Write the cron command as well as the shell command to delete the files older than 30 minutes. Register the crontab file and watch its effect. Then unregister the crontab file.
+Submission instructions for the take home part of Lab 1.
+1. For each of the 6 problems described above, your job is to create a sequence of unix cli commands that accomplish the task. Write down this sequence of commands in a file named <name>-lab1-solution
+2. Create a tar archive of all these *.solution files in <name>-lab1-solutions.tar
+
+
+cmd to zip
+$ tar -czvf <name>-lab1-solution.tar.gz <name>-lab1-solution

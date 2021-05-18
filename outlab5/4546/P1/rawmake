@@ -1,0 +1,52 @@
+SOURCE=hello.cpp usespthread.cpp
+
+EXECUTABLE1=helloworld
+EXECUTABLE2=usespthread
+EXECUTABLE3A=libMyEngineDynamic.so
+EXECUTABLE3B=libMyEngineStatic.a
+EXECUTABLE4A=installdynamic
+EXECUTABLE4B=installstatic
+EXECUTABLE6=mygamedynamic
+EXECUTABLE5=mygamestatic
+
+all: $(SOURCE) $(EXECUTABLE1) $(EXECUTABLE2) $(EXECUTABLE3A) $(EXECUTABLE3B) clean
+
+$(EXECUTABLE1): 
+	g++ helloworld.cpp -o hello
+$(EXECUTABLE2):
+	g++ -pthread usespthread.cpp -o usespthread
+compile:
+
+$(EXECUTABLE3A):
+	g++ -fPIC -shared myengine/myengine.cpp -o libMyEngineDynamic.so
+	
+$(EXECUTABLE3B):
+	g++ -c myengine/myengine.cpp -o myengine.o
+	ar rcs libMyEngineStatic.a myengine.o
+
+.PHONY : $(EXECUTABLE4A)
+$(EXECUTABLE4A):
+	sudo cp libMyEngineDynamic.so /usr/local/lib/
+	sudo chmod 0755 /usr/local/lib/libMyEngineDynamic.so
+	sudo cp myengine/myengine.hpp /usr/local/include/
+	sudo ldconfig
+
+.PHONY : $(EXECUTABLE4B)
+$(EXECUTABLE4B):
+	sudo cp libMyEngineStatic.a /usr/local/lib/
+	sudo chmod 0755 /usr/local/lib/libMyEngineStatic.a
+	sudo cp myengine/myengine.hpp /usr/local/include/
+	sudo ldconfig
+
+$(EXECUTABLE5):
+	g++ -L/usr/local/lib/libMyEngineStatic.a -o mygamestatic mygame/mygame.cpp -lMyEngineStatic 	
+		
+$(EXECUTABLE6):
+	g++ -L/usr/local/lib/libMyEngineDynamic.so  -o mygamedynamic mygame/mygame.cpp -lMyEngineDynamic
+
+
+
+.PHONY:clean
+clean:
+	find . \( -name "*.o" -o -name "*.a" -o -name "*.so" \) -delete
+

@@ -1,0 +1,47 @@
+week3
+Intro to Python Programming
+we shall do more advanced stuff in the next lab, get
+fully conversant with Python now through the lab
+statement
+----------------------------------------------
+
+How to execute:
+
+ python3.4 myprog.py
+ 
+
+execute all demo programs first and observe the behavior
+python is a dynamically typed language
+you won't see types 
+you directly start using variables
+syntax for if, for is a bit different from java/c++
+indentation is very important-- we don't have curly braces for program blocks, 
+	we just use indentation-- observe it in the programs
+	
+lists, sets, dictionaries, tuples etc are available
+
+program executes as long as there is no typing error
+
+
+------------------------------------------------------------
+some links for your reference:
+(so that you have a quick start)
+
+operators
+https://en.wikibooks.org/wiki/Python_Programming/Operators
+
+some structures
+https://en.wikibooks.org/wiki/Python_Programming/Sequences
+https://en.wikibooks.org/wiki/Python_Programming/Data_Types
+
+functions
+https://en.wikibooks.org/wiki/Python_Programming/Functions
+
+files
+https://en.wikibooks.org/wiki/Python_Programming/Files
+
+
+
+
+
+

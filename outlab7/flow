@@ -1,0 +1,27 @@
+\tikzstyle{diamond} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{rectangle} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, minimum height=4em]
+\tikzstyle{rectangle} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{ellipse} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+\tikzstyle{line}=[draw, -latex']
+
+\begin{tikzpicture}[node distance = 1.5cm,auto]
+\node [ellipse] (step1) {initialize model};
+\node[rectangle,below of=step1] (step2) {Pray};
+\node[diamond,below of=step2](step3) {Did it work?};
+\node[rectangle,below of=step3](step4) {Praise the Lord};
+\node[rectangle2,right of=step4,node distance=2.5cm](step5) {God works in mysterious ways};
+\node[ellipse,below of=step4](step4) (Die);
+\path[line](step1) -- (step2);
+\path[line](step2) -- (step3);
+\path[line](step3) -- (step4);
+\path[line](step3) -- (step5);
+\path[line](step4) -- (step6);
+\path[line](step5) -- (step6);
+\end{tikzpicture}
+\caption{Flowchart of a theist life}
+

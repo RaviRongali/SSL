@@ -1,0 +1,5 @@
+compile:
+helloworld:helloworld.cpp
+	g++ -c helloworld.cpp
+usespthread:usespthread.cpp
+	g++ -Wall -c -g  usespthread.cpp

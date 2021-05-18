@@ -1,0 +1,18 @@
+$ ./pdfScraper.sh https://www.cse.iitb.ac.in/~lucifer/problem1.pdf
+--2018-07-27 10:22:40--  http://wget/
+Resolving wget (wget)... failed: Name or service not known.
+wget: unable to resolve host address ‘wget’
+--2018-07-27 10:22:40--  https://www.cse.iitb.ac.in/~lucifer/problem1.pdf
+Resolving www.cse.iitb.ac.in (www.cse.iitb.ac.in)... 10.129.3.3
+Connecting to www.cse.iitb.ac.in (www.cse.iitb.ac.in)|10.129.3.3|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 54725 (53K) [application/pdf]
+Saving to: ‘tmp.pdf’
+
+tmp.pdf             100%[===================>]  53.44K  --.-KB/s    in 0.007s  
+
+2018-07-27 10:22:40 (8.00 MB/s) - ‘tmp.pdf’ saved [54725/54725]
+
+FINISHED --2018-07-27 10:22:40--
+Total wall clock time: 0.04s
+Downloaded: 1 files, 53K in 0.007s (8.00 MB/s)

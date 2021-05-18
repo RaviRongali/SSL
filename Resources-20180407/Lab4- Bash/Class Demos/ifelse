@@ -1,0 +1,17 @@
+X=10
+Y=10
+
+if [ $X -eq $Y ] 
+then	echo "equal"
+elif [ $X -gt $Y ]
+then   echo "Greater"
+else [ $X -lt $Y ]
+echo "Smaller"
+fi
+
+#  -lt 	<
+#  -gt 	>
+#  -le 	<=
+#  -ge 	>=
+#  -eq 	==
+#  -ne 	!=

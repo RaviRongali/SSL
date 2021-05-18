@@ -1,0 +1,75 @@
+UNIX and VIM
+	Try out basic UNIX and vim commands. Vim commands can be tried in the given link.
+
+
+UNIX Reference: summary sheet uploaded on moodle, man pages 
+
+
+VIM Reference: http://www.openvim.com/  and the summary sheet uploaded on moodle
+
+
+______________________________________________________________________________________________________
+
+HTML
+
+Reference: http://www.w3schools.com/html   
+
+   In this lab, the goal is to make your homepage as file called index.html
+   This is written in the HTML format.
+   
+   
+Part A
+   
+   HTML format is nothing but information contained in tags such as
+  
+    <html>
+    <b> Hanumanth Rao </b>
+    </html>
+    
+   The above file will display just that one statement in bold face font when 
+   you see this file in a browser.
+   
+    The browser renders the fonts and tables, but the html file is just a text file which you
+     will edit in vim. By that you will learn both vim and html.
+     
+     Once you make a simple html file, upload it in your public_html directory as follows:
+     
+      scp index.html username@mars.cse.iitb.ac.in:public_html/.
+     
+     (If there is any change in this, the TAs will inform you!)
+     
+     Now you can keep adding more content in this file, first on the current desktop and then by uploading it to make it live.
+     Before you upload, you can simply double click on the file and it will open locally to show you what it actually looks like.
+      
+      The content that you should add in your index.html:
+       
+        0. Insert text with different fonts (italics, bold etc) and with different sizes (small, big, huge etc)
+	1. Insert an image
+	2. Insert a table M rows and N columns and fil up as per your choice
+	3. Add three hyperlinks 
+	        a. Link to our dept home page
+		a. Link within the same page
+		b. To an external link such as an online dictionary
+	4. A list (either ordered or unordered)
+
+----------------------------------------
+
+part B CSS (Try this today if you are done with part A)
+
+Add the following features to your homepage using following CSS sheet (which guides the rendering of HTML)	
+
+Reference: http://www.w3schools.com/css/
+  Also refer to uploaded example on moodle to see how it works
+
+
+	1. Make use of class and id selectors
+	2. Try all ways to insert CSS, 
+		a. Inline:	Properties are specified inside the HTML tag
+		b. Internal:	Properties are specified within the head section  
+		c. External: 	Properties are specified in an external style sheet
+	3. Change background and font colors
+	4. Play around with font sizes and family 
+	5. Center align the table as a whole
+
+
+
